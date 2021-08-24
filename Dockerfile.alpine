@@ -8,6 +8,7 @@ ENV CONFTEST_VERSION=0.27.0
 RUN sudo apk add --no-cache \
              curl==7.78.0-r0 \
              wget==1.21.1-r1 \
+             gnupg==2.2.27-r0 \
              docker==20.10.7-r1 \
              openrc==0.43.3-r1 \
              nodejs==14.17.4-r0 \
@@ -16,6 +17,8 @@ RUN sudo apk add --no-cache \
              ruby-webrick==2.7.4-r0 \
              ruby-bigdecimal==2.7.4-r0 \
              ruby-bundler==2.2.20-r0 && \
+    sudo apk add --no-cache --quiet \
+             wget==1.21.1-r1 && \
     sudo apk add --no-cache --virtual build-dependencies \
              ruby-dev==2.7.4-r0 \
              libffi-dev==3.3-r2 \
