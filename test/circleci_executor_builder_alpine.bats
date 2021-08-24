@@ -25,11 +25,6 @@
   [[ "${output}" =~ "7.17.0" ]]
 }
 
-@test "secrethub version" {
-  run bash -c "docker exec di-circleci-base-image-alpine-edge secrethub --version"
-  [[ "${output}" =~ "0.42.1" ]]
-}
-
 @test "snyk version" {
   run bash -c "docker exec di-circleci-base-image-alpine-edge snyk --version"
   [[ "${output}" =~ "1.653.0" ]]
