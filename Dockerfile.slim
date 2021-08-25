@@ -40,7 +40,7 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
              inspec-bin:4.41.2 && \
     wget https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
-    sudo apt-get uninstall -y gnupg && \
+    sudo apt remove -y gnupg && \
     sudo mv conftest /usr/local/bin && sudo rm conftest*
 
 USER circleci
