@@ -17,8 +17,6 @@ RUN sudo apk add --no-cache \
              ruby-webrick==2.7.4-r0 \
              ruby-bigdecimal==2.7.4-r0 \
              ruby-bundler==2.2.20-r0 && \
-    sudo apk add --no-cache --quiet \
-             wget==1.21.1-r1 && \
     sudo apk add --no-cache --virtual build-dependencies \
              ruby-dev==2.7.4-r0 \
              libffi-dev==3.3-r2 \
@@ -30,7 +28,7 @@ RUN sudo apk add --no-cache \
              bats@1.3.0 && \
     sudo gem install \
              inspec-bin:4.38.3 && \
-    wget https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
+    wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo mv conftest /usr/local/bin && rm conftest* && \
     sudo rc-update add docker boot && \
