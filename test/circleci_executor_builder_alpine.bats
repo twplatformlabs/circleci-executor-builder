@@ -22,7 +22,7 @@
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge snyk --version"
-  [[ "${output}" =~ "1.683.0" ]]
+  [[ "${output}" =~ "1.692.0" ]]
 }
 
 @test "bats version" {
