@@ -6,7 +6,7 @@
 	</p>
   <h3>DPS Convenience Images</h3>
   <h1>twdps/circleci-executor-builder</h1>
-  <a href="https://app.circleci.com/pipelines/github/ThoughtWorks-DPS/circleci-executor-builder"><img src="https://circleci.com/gh/ThoughtWorks-DPS/circleci-executor-builder.svg?style=shield"></a> <a href="https://hub.docker.com/repository/docker/twdps/circleci-executor-builder"><img src="https://img.shields.io/docker/v/twdps/circleci-executor-builder?sort=semver"></a><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/ThoughtWorks-DPS/circleci-executor-builder"></a>
+  <a href="https://app.circleci.com/pipelines/github/ThoughtWorks-DPS/circleci-executor-builder"><img src="https://circleci.com/gh/ThoughtWorks-DPS/circleci-executor-builder.svg?style=shield"></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/ThoughtWorks-DPS/circleci-executor-builder"></a>
 </div>
 <br />
 

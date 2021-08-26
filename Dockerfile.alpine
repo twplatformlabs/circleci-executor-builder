@@ -24,8 +24,8 @@ RUN sudo apk add --no-cache \
              gcc==10.3.1_git20210424-r2 \
              make==4.3-r0 && \
     sudo npm install -g \
-             snyk@1.653.0 \
-             bats@1.3.0 && \
+             snyk@1.683.0 \
+             bats@1.4.1 && \
     sudo gem install \
              inspec-bin:4.38.3 && \
     wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
