@@ -27,7 +27,7 @@ RUN sudo apk add --no-cache \
              snyk@1.683.0 \
              bats@1.4.1 && \
     sudo gem install \
-             inspec-bin:4.38.3 && \
+             inspec-bin:4.41.2 && \
     wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo mv conftest /usr/local/bin && rm conftest* && \

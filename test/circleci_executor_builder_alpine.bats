@@ -32,7 +32,7 @@
 
 @test "inspec version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge inspec --version"
-  [[ "${output}" =~ "4.38.3" ]]
+  [[ "${output}" =~ "4.41.2" ]]
 }
 
 @test "conftest version" {

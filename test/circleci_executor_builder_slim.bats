@@ -7,7 +7,7 @@
 
 @test "wget version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge wget --version"
-  [[ "${output}" =~ "1.21-1" ]]
+  [[ "${output}" =~ "1.21" ]]
 }
 
 @test "gpg version" {
@@ -27,12 +27,12 @@
 
 @test "bats version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge bats -v"
-  [[ "${output}" =~ "1.3.0" ]]
+  [[ "${output}" =~ "1.4.1" ]]
 }
 
 @test "inspec version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge inspec --version"
-  [[ "${output}" =~ "4.38.3" ]]
+  [[ "${output}" =~ "4.41.2" ]]
 }
 
 @test "conftest version" {
