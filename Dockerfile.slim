@@ -43,6 +43,8 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
     sudo apt remove -y gnupg && \
     sudo mv conftest /usr/local/bin && sudo rm conftest*
 
+COPY inspec /etc/chef/accepted_licenses/inspec
+
 USER circleci
 
 WORKDIR /home/circleci/project
