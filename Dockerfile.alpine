@@ -34,6 +34,8 @@ RUN sudo apk add --no-cache \
     sudo rc-update add docker boot && \
     sudo apk del build-dependencies
 
+COPY inspec /etc/chef/accepted_licenses/inspec
+
 WORKDIR /home/circleci/project
 
 USER circleci
