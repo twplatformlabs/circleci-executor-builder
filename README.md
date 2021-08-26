@@ -13,11 +13,11 @@
 Enterprises using CircleCI will find that building executors is a common task. Having a dedicated resources, pre-configured and maintained with current release versions of docker, tools for downloading packages, and standard testing frameworks will make for a consistent, quality experience.  
 
 The DPS builder includes the following:  
-| builder  | download | test     |
-|:--------:|:--------:|:--------:|
-| docker   | curl     | bats     |
-|          | wget     | inspec   |
-|          | gnupg    | conftest |
-|          |          | snyk     |
+| base     | file xfer  | test     |
+|:--------:|:----------:|:--------:|
+| docker   | curl       | bats     |
+| ruby     | wget       | inspec   |
+| nodejs   | gnupg      | conftest |
+|          |            | snyk     |
 
 See CHANGES.md for detailed version information.  

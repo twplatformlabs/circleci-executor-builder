@@ -11,7 +11,7 @@ RUN sudo apk add --no-cache \
              gnupg==2.2.27-r0 \
              docker==20.10.7-r1 \
              openrc==0.43.3-r1 \
-             nodejs==14.17.4-r0 \
+             nodejs==14.17.5-r0 \
              npm==7.17.0-r0 \
              ruby==2.7.4-r0 \
              ruby-webrick==2.7.4-r0 \
@@ -24,7 +24,7 @@ RUN sudo apk add --no-cache \
              gcc==10.3.1_git20210424-r2 \
              make==4.3-r0 && \
     sudo npm install -g \
-             snyk@1.683.0 \
+             snyk@1.692.0 \
              bats@1.4.1 && \
     sudo gem install \
              inspec-bin:4.41.2 && \
