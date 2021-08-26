@@ -31,7 +31,7 @@ workflows:
           cis-docker-image-scan: true
           skip-base-image: true
           bats-test: true
-          test-path: test/di_circleci_base_image_alpine.bats
+          test-path: test/circleci_executor-builder_alpine.bats
           container-name: circleci-executor-builder-alpine-edge
           after-checkout:
             - run:
@@ -51,17 +51,21 @@ workflows:
       #     release-tag: alpine-stable
       #     filters: *on-tag-master        
 
-  di-circleci-base-slim-image-pipeline:
+  circleci-executor-builder-slim-image-pipeline:
     jobs:
       - executor-tools/machine-executor-dev-release:
           name: slim-dev-build
           context: twdps-di
           dockerfile: Dockerfile.slim
-          image: twdps/di-circleci-base-image
+          image: twdps/circleci-executor-builder
           tag: slim-edge
+          docker-cve-scan: true
+          snyk-organization: twdps
+          cis-docker-image-scan: true
+          skip-base-image: true
           bats-test: true
-          test-path: test/di_circleci_base_image_slim.bats
-          container-name: di-circleci-base-image-slim-edge
+          test-path: test/circleci_executor_builder_slim.bats
+          container-name: circleci-executor-builder-slim-edge
           after-checkout:
             - run:
                 name: inject environment variables
