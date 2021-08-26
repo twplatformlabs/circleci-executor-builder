@@ -31,7 +31,7 @@ workflows:
           cis-docker-image-scan: true
           skip-base-image: true
           bats-test: true
-          test-path: test/circleci_executor-builder_alpine.bats
+          test-path: test/circleci_executor_builder_alpine.bats
           container-name: circleci-executor-builder-alpine-edge
           after-checkout:
             - run:
