@@ -1,3 +1,7 @@
+## 09-01-2021 package versions in circleci-executor-builder:1.1.2
+
+Removed duplicate WORKDIR directive  
+
 ## 08-26-2021 package versions in circleci-executor-builder:1.1.1
 
 Added inspec license acceptance file  
