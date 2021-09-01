@@ -36,6 +36,4 @@ RUN sudo apk add --no-cache \
 
 COPY inspec /etc/chef/accepted_licenses/inspec
 
-WORKDIR /home/circleci/project
-
 USER circleci
