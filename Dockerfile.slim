@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:slim-3.1.1
+FROM twdps/circleci-base-image:slim-3.1.2
 
 LABEL maintainer=<nchenewe@thoughtworks.com>
 
@@ -28,12 +28,12 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
                  containerd.io=1.4.9-1 && \
     sudo bash -c "curl -sL https://deb.nodesource.com/setup_14.x | bash - " && \
     sudo apt-get install --no-install-recommends -y \
-                 nodejs=14.17.5-deb-1nodesource1 && \
+                 nodejs=14.17.6-deb-1nodesource1 && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
     sudo bash -c "sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && locale-gen" && \
     sudo npm install -g \
-             snyk@1.692.0 \
+             snyk@1.696.0 \
              bats@1.4.1 && \
     sudo gem install --no-document \
              inspec-bin:4.41.2 && \
