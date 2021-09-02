@@ -18,7 +18,7 @@ on-tag-main: &on-tag-main
 
 workflows:
   version: 2
-  circleci-executor-builder-alpine-image-pipeline:
+  alpine-image-pipeline:
     jobs:
       - executor-tools/machine-executor-dev-release:
           name: alpine-dev-build
@@ -51,7 +51,7 @@ workflows:
           release-tag: alpine-stable
           filters: *on-tag-main        
 
-  circleci-executor-builder-slim-image-pipeline:
+  slim-image-pipeline:
     jobs:
       - executor-tools/machine-executor-dev-release:
           name: slim-dev-build
