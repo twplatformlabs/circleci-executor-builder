@@ -1,8 +1,9 @@
-## 09-01-2021 package versions in circleci-executor-builder:1.1.2
+## 09-01-2021 package versions in circleci-executor-builder:1.1.3
 
 ^changes  
 
 Removed duplicate WORKDIR directive  
+Cleaned up files left over from conftest install
 
 FROM twdps/circleci-base-image:alpine-3.1.2^  
 
