@@ -30,7 +30,7 @@ RUN sudo apk add --no-cache \
              inspec-bin:4.41.20 && \
     wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
-    sudo mv conftest /usr/local/bin && rm * && \
+    sudo mv conftest /usr/local/bin && rm ./* && \
     sudo rc-update add docker boot && \
     sudo apk del build-dependencies
 
