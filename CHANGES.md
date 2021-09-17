@@ -1,3 +1,43 @@
+## 09-16-2021 package versions in circleci-executor-builder:1.2.0
+
+^changes  
+
+FROM twdps/circleci-base-image:alpine-3.1.3^  
+
+| package         | version      |
+|-----------------|--------------|
+| curl            | 7.79.0-r0^   |
+| wget            | 1.21.1-r1    |
+| gnupg           | 2.2.27-r0    |
+| docker          | 20.10.7-r2^  |
+| snyk            | 1.716.0^     |
+| bats            | 1.4.1        |
+| conftest        | 0.27.0       |
+| inspec          | 4.41.20      |
+| nodejs          | 14.17.6-r0   |
+| npm             | 7.17.0-r0    |
+| ruby            | 2.7.4-r0     |
+
+FROM twdps/circleci-base-image:slim-3.1.3^  
+
+docker install pinned to bullseye since there is no bookworm or Sid release  
+CVE scan turned off - no fix for the following:  
+https://snyk.io/vuln/SNYK-DEBIANUNSTABLE-WGET-1277613  
+https://snyk.io/vuln/SNYK-DEBIANUNSTABLE-PYTHON39-1085112  
+https://snyk.io/vuln/SNYK-DEBIANUNSTABLE-RUBYGEMS-1279004  
+https://snyk.io/vuln/SNYK-DEBIANUNSTABLE-PYTHON39-1290157  
+
+| package         | version      |
+|-----------------|--------------|
+| curl            | 7.78.0-r0    |
+| wget            | 1.21.1-r1    |
+| gnupg           | 2.2.27-r0    |
+| docker          | 20.10.8      |
+| snyk            | 1.716.0^     |
+| bats            | 1.4.1        |
+| conftest        | 0.27.0       |
+| inspec          | 4.41.20      |
+
 ## 09-01-2021 package versions in circleci-executor-builder:1.1.3
 
 ^changes  
