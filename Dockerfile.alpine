@@ -1,33 +1,32 @@
-FROM twdps/circleci-base-image:alpine-3.1.3
+FROM twdps/circleci-base-image:alpine-3.1.4
 
 LABEL maintainer=<nchenewe@thoughtworks.com>
 
-ENV CONFTEST_VERSION=0.27.0
+ENV CONFTEST_VERSION=0.28.3
 
 # hadolint ignore=DL3004
 RUN sudo apk add --no-cache \
-             curl==7.79.0-r0 \
-             wget==1.21.1-r1 \
-             gnupg==2.2.27-r0 \
-             docker==20.10.7-r2 \
-             openrc==0.43.3-r1 \
-             nodejs==14.17.6-r0 \
-             npm==7.17.0-r0 \
-             ruby==2.7.4-r0 \
-             ruby-webrick==2.7.4-r0 \
-             ruby-bigdecimal==2.7.4-r0 \
-             ruby-bundler==2.2.20-r0 && \
+             curl==7.80.0-r0 \
+             wget==1.21.2-r2 \
+             gnupg==2.2.31-r1 \
+             docker==20.10.11-r0 \
+             openrc==0.44.7-r2 \
+             nodejs==16.13.1-r0 \
+             npm==8.1.3-r0 \
+             ruby==3.0.3-r0 \
+             ruby-webrick==1.7.0-r0 \
+             ruby-bundler==2.2.31-r0 && \
     sudo apk add --no-cache --virtual build-dependencies \
-             ruby-dev==2.7.4-r0 \
-             libffi-dev==3.3-r2 \
-             g++==10.3.1_git20210424-r2 \
-             gcc==10.3.1_git20210424-r2 \
+             ruby-dev==3.0.3-r0 \
+             libffi-dev==3.4.2-r1 \
+             g++==10.3.1_git20211027-r0 \
+             gcc==10.3.1_git20211027-r0 \
              make==4.3-r0 && \
     sudo npm install -g \
-             snyk@1.716.0 \
-             bats@1.4.1 && \
-    sudo gem install \
-             inspec-bin:4.41.20 && \
+             snyk@1.785.0 \
+             bats@1.5.0 && \
+    sudo gem install --no-document \
+             inspec-bin:4.50.3 && \
     wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo mv conftest /usr/local/bin && rm ./* && \
