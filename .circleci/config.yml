@@ -2,7 +2,7 @@
 version: 2.1
 
 orbs:
-  executor-tools: twdps/executor-tools@dev:latest
+  executor-tools: twdps/executor-tools@0.2.0
 
 on-push-main: &on-push-main
   branches:
@@ -40,7 +40,7 @@ workflows:
                   secrethub inject -i secrethub.env -o $BASH_ENV
                   source $BASH_ENV
           filters: *on-push-main
-          
+
       - executor-tools/publish:
           shell: secrethub run -- /bin/sh -eo pipefail
           name: alpine-release
@@ -49,7 +49,7 @@ workflows:
           tag-annotation: alpine-
           image: twdps/circleci-executor-builder
           release-tag: alpine-stable
-          filters: *on-tag-main        
+          filters: *on-tag-main
 
   slim-image-pipeline:
     jobs:
@@ -73,7 +73,7 @@ workflows:
                   secrethub inject -i secrethub.env -o $BASH_ENV
                   source $BASH_ENV
           filters: *on-push-main
-          
+
       - executor-tools/publish:
           shell: secrethub run -- /bin/sh -eo pipefail
           name: slim-release
@@ -82,7 +82,14 @@ workflows:
           tag-annotation: slim-
           image: twdps/circleci-executor-builder
           release-tag: slim-stable
-          filters: *on-tag-main  
+          filters: *on-tag-main
+
+  generate-release-notes:
+    jobs:
+      - executor-tools/release:
+          context: twdps-di
+          shell: secrethub run -- /bin/sh -eo pipefail
+          filters: *on-tag-main
 
   # builds nightly from .unpinned Dockerfile in order to test the latest base image and installed packages
   circleci-executor-builder-nightly-build:
@@ -133,4 +140,3 @@ workflows:
                 command: |
                   secrethub inject -i secrethub.env -o $BASH_ENV
                   source $BASH_ENV
-

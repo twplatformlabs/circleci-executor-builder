@@ -1,0 +1,39 @@
+FROM twdps/circleci-base-image:alpine-stable
+
+LABEL maintainer=<nchenewe@thoughtworks.com>
+
+ENV CONFTEST_VERSION=0.28.3
+
+# hadolint ignore=DL3004
+RUN sudo apk add --no-cache \
+             curl \
+             wget \
+             gnupg \
+             docker \
+             openrc \
+             nodejs \
+             npm \
+             ruby \
+             ruby-webrick \
+             ruby-bundler && \
+    sudo apk add --no-cache --virtual build-dependencies \
+             ruby-dev \
+             libffi-dev \
+             g++ \
+             gcc \
+             make && \
+    sudo npm install -g \
+             snyk \
+             bats \
+             github-release-notes && \
+    sudo gem install --no-document \
+             inspec-bin && \
+    wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
+    tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
+    sudo mv conftest /usr/local/bin && rm ./* && \
+    sudo rc-update add docker boot && \
+    sudo apk del build-dependencies
+
+COPY inspec /etc/chef/accepted_licenses/inspec
+
+USER circleci

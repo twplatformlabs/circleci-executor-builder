@@ -17,12 +17,12 @@
 
 @test "docker health" {
   run bash -c "docker exec circleci-executor-builder-slim-edge docker version"
-  [[ "${output}" =~ "20.10.11" ]]
+  [[ "${output}" =~ "20.10.12" ]]
 }
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge snyk --version"
-  [[ "${output}" =~ "1.785.0" ]]
+  [[ "${output}" =~ "1.797.0" ]]
 }
 
 @test "bats version" {
@@ -38,4 +38,9 @@
 @test "conftest version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge conftest --version"
   [[ "${output}" =~ "0.28.3" ]]
+}
+
+@test "gren version" {
+  run bash -c "docker exec circleci-executor-builder-slim-edge gren --version"
+  [[ "${output}" =~ "0.17.3" ]]
 }

@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:slim-3.1.4
+FROM twdps/circleci-base-image:slim-3.1.5
 
 LABEL maintainer=<nchenewe@thoughtworks.com>
 
@@ -13,7 +13,7 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
     sudo apt-get install --no-install-recommends -y \
             curl=7.79.1-2 \
             wget=1.21.2-2+b1 \
-            gnupg=2.2.27-2 \
+            gnupg=2.2.27-3 \
             apt-transport-https=2.3.13 \
             lsb-release=11.1.0 \
             ruby-full=1:2.7.6 \
@@ -23,9 +23,9 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
             libcurl3-gnutls=7.79.1-2 && \
     sudo bash -c "curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg" && \
     sudo bash -c "echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bullseye stable\" | tee /etc/apt/sources.list.d/docker.list > /dev/null" && sudo apt-get update && \
-    sudo apt-get install --no-install-recommends -y \        
-                 docker-ce=5:20.10.11~3-0~debian-bullseye \
-                 docker-ce-cli=5:20.10.11~3-0~debian-bullseye \
+    sudo apt-get install --no-install-recommends -y \
+                 docker-ce=5:20.10.12~3-0~debian-bullseye \
+                 docker-ce-cli=5:20.10.12~3-0~debian-bullseye \
                  containerd.io=1.4.12-1 && \
     sudo bash -c "curl -sL https://deb.nodesource.com/setup_14.x | bash - " && \
     sudo apt-get install --no-install-recommends -y \
@@ -34,8 +34,9 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
     sudo rm -rf /var/lib/apt/lists/* && \
     sudo bash -c "sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && locale-gen" && \
     sudo npm install -g \
-             snyk@1.785.0 \
-             bats@1.5.0 && \
+             snyk@1.797.0 \
+             bats@1.5.0 \
+             github-release-notes@0.17.3 && \
     sudo gem install --no-document \
              inspec-bin:4.50.3 && \
     wget https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
@@ -46,5 +47,3 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
 COPY inspec /etc/chef/accepted_licenses/inspec
 
 USER circleci
-
-# sudo bash -c "echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable\" | tee /etc/apt/sources.list.d/docker.list > /dev/null" && sudo apt-get update && \
