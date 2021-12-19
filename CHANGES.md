@@ -1,3 +1,7 @@
+## 12-19-2021 add automated release note generation
+
+CHANGES.md deprecated. See release notes and Dockerfile for latest versions and configuration.  
+
 ## 12-06-2021 package versions in circleci-executor-builder:1.3.0
 
 ^changes  
@@ -20,19 +24,12 @@ FROM twdps/circleci-base-image:alpine-3.1.4^
 
 FROM twdps/circleci-base-image:slim-3.1.4^  
 
-docker install pinned to bullseye since there is no bookworm or Sid release  
-CVE scan turned off - no fix for the following:  
-https://snyk.io/vuln/SNYK-DEBIANUNSTABLE-WGET-1277613  
-https://snyk.io/vuln/SNYK-DEBIANUNSTABLE-PYTHON39-1085112  
-https://snyk.io/vuln/SNYK-DEBIANUNSTABLE-RUBYGEMS-1279004  
-https://snyk.io/vuln/SNYK-DEBIANUNSTABLE-PYTHON39-1290157  
-
 | package         | version      |
 |-----------------|--------------|
 | curl            | 7.79.1-2^    |
 | wget            | 1.21.2-2+b1^ |
 | gnupg           | 2.2.27-2^    |
-| docker          | 20.10.8      |
+| docker          | 20.10.11     |
 | snyk            | 1.785.0^     |
 | bats            | 1.5.0^       |
 | conftest        | 0.28.3^      |
@@ -182,4 +179,3 @@ FROM twdps/circleci-base-image:slim-3.0.0
 | bats            | 1.4.1        |
 | conftest        | 0.27.0       |
 | inspec          | 4.41.2       |
-

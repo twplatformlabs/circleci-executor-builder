@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:alpine-3.1.4
+FROM twdps/circleci-base-image:alpine-3.1.5
 
 LABEL maintainer=<nchenewe@thoughtworks.com>
 
@@ -23,8 +23,9 @@ RUN sudo apk add --no-cache \
              gcc==10.3.1_git20211027-r0 \
              make==4.3-r0 && \
     sudo npm install -g \
-             snyk@1.785.0 \
-             bats@1.5.0 && \
+             snyk@1.797.0 \
+             bats@1.5.0 \
+             github-release-notes@0.17.3 && \
     sudo gem install --no-document \
              inspec-bin:4.50.3 && \
     wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \

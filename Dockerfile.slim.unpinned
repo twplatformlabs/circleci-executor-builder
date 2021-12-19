@@ -1,0 +1,49 @@
+FROM twdps/circleci-base-image:slim-stable
+
+LABEL maintainer=<nchenewe@thoughtworks.com>
+
+ENV CONFTEST_VERSION=0.28.3
+
+ENV DEBIAN_FRONTEND=noninteractive
+SHELL ["/bin/bash", "-exo", "pipefail", "-c"]
+
+# hadolint ignore=DL4001,DL3004,DL3047
+RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90circleci" && \
+    sudo bash -c "echo 'DPkg::Options \"--force-confnew\";' >> /etc/apt/apt.conf.d/90circleci" && sudo apt-get update && \
+    sudo apt-get install --no-install-recommends -y \
+            curl \
+            wget \
+            gnupg \
+            apt-transport-https \
+            lsb-release \
+            ruby-full \
+            gcc \
+            g++ \
+            make \
+            libcurl3-gnutls && \
+    sudo bash -c "curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg" && \
+    sudo bash -c "echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bullseye stable\" | tee /etc/apt/sources.list.d/docker.list > /dev/null" && sudo apt-get update && \
+    sudo apt-get install --no-install-recommends -y \
+                 docker-ce \
+                 docker-ce-cli \
+                 containerd.io && \
+    sudo bash -c "curl -sL https://deb.nodesource.com/setup_14.x | bash - " && \
+    sudo apt-get install --no-install-recommends -y \
+                 nodejs && \
+    sudo apt-get clean && \
+    sudo rm -rf /var/lib/apt/lists/* && \
+    sudo bash -c "sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && locale-gen" && \
+    sudo npm install -g \
+             snyk \
+             bats \
+             github-release-notes && \
+    sudo gem install --no-document \
+             inspec-bin && \
+    wget https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
+    tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
+    sudo apt remove -y gnupg && \
+    sudo mv conftest /usr/local/bin && sudo rm ./*
+
+COPY inspec /etc/chef/accepted_licenses/inspec
+
+USER circleci
