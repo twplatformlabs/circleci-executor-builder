@@ -2,7 +2,7 @@
 
 @test "curl version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge curl --version"
-  [[ "${output}" =~ "7.79.1" ]]
+  [[ "${output}" =~ "7.81" ]]
 }
 
 @test "wget version" {
@@ -22,7 +22,7 @@
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge snyk --version"
-  [[ "${output}" =~ "1.797.0" ]]
+  [[ "${output}" =~ "1.848.0" ]]
 }
 
 @test "bats version" {
@@ -32,12 +32,12 @@
 
 @test "inspec version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge inspec --version"
-  [[ "${output}" =~ "4.50.3" ]]
+  [[ "${output}" =~ "4.52.9" ]]
 }
 
 @test "conftest version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge conftest --version"
-  [[ "${output}" =~ "0.28.3" ]]
+  [[ "${output}" =~ "0.30.0" ]]
 }
 
 @test "gren version" {
