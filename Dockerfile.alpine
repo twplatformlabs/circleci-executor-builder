@@ -15,7 +15,7 @@ RUN sudo apk add --no-cache \
              npm==8.3.0-r0 \
              ruby==3.0.3-r0 \
              ruby-webrick==1.7.0-r0 \
-             ruby-bundler==2.2.31-r0 && \
+             ruby-bundler==2.3.10-r0 && \
     sudo apk add --no-cache --virtual build-dependencies \
              ruby-dev==3.0.3-r0 \
              libffi-dev==3.4.2-r1 \
