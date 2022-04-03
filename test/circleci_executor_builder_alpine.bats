@@ -2,37 +2,37 @@
 
 @test "curl version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge curl --version"
-  [[ "${output}" =~ "7.80.0" ]]
+  [[ "${output}" =~ "7.82.0" ]]
 }
 
 @test "wget version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge wget --version"
-  [[ "${output}" =~ "1.21.2" ]]
+  [[ "${output}" =~ "1.21.3" ]]
 }
 
 @test "gpg version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge gpg --version"
-  [[ "${output}" =~ "2.2.31" ]]
+  [[ "${output}" =~ "2.2.34" ]]
 }
 
 @test "docker health" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge docker version"
-  [[ "${output}" =~ "20.10.11" ]]
+  [[ "${output}" =~ "20.10.14" ]]
 }
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge snyk --version"
-  [[ "${output}" =~ "1.848.0" ]]
+  [[ "${output}" =~ "1.893.0" ]]
 }
 
 @test "bats version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge bats -v"
-  [[ "${output}" =~ "1.5.0" ]]
+  [[ "${output}" =~ "1.6.0" ]]
 }
 
 @test "inspec version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge inspec --version"
-  [[ "${output}" =~ "4.52.9" ]]
+  [[ "${output}" =~ "5.10.5" ]]
 }
 
 @test "conftest version" {
