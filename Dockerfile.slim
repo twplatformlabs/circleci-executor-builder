@@ -1,8 +1,8 @@
-FROM twdps/circleci-base-image:slim-3.3.0
+FROM twdps/circleci-base-image:slim-3.4.0
 
 LABEL maintainer=<nchenewe@thoughtworks.com>
 
-ENV CONFTEST_VERSION=0.30.0
+ENV CONFTEST_VERSION=0.31.0
 
 ENV DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-exo", "pipefail", "-c"]
@@ -12,9 +12,9 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
     sudo bash -c "echo 'DPkg::Options \"--force-confnew\";' >> /etc/apt/apt.conf.d/90circleci" && sudo apt-get update && \
     sudo apt-get install --no-install-recommends -y \
             curl=7.82.0-2 \
-            wget=1.21.3-1 \
-            gnupg=2.2.27-3 \
-            apt-transport-https=2.4.4 \
+            wget=1.21.3-1+b1 \
+            gnupg=2.2.34-1 \
+            apt-transport-https=2.4.5 \
             lsb-release=11.1.0 \
             ruby-full=1:3.0+1 \
             gcc=4:11.2.0-2 \
@@ -33,11 +33,11 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
     sudo rm -rf /var/lib/apt/lists/* && \
     sudo bash -c "sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && locale-gen" && \
     sudo npm install -g \
-             snyk@1.893.0 \
+             snyk@1.912.0 \
              bats@1.6.0 \
              github-release-notes@0.17.3 && \
     sudo gem install --no-document \
-             inspec-bin:5.10.5 && \
+             inspec-bin:5.14.0 && \
     wget https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo apt remove -y gnupg && \
@@ -46,3 +46,5 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
 COPY inspec /etc/chef/accepted_licenses/inspec
 
 USER circleci
+
+bash -c "echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bookworm stable\" | tee /etc/apt/sources.list.d/docker.list > /dev/null"
