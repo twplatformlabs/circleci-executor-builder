@@ -1,0 +1,89 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.22.0
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-ALPINE315-CONTAINERD-2331740:
+    - containerd/containerd@1.5.8-r0:
+      reason: Improper Preservation of Permissions
+      expires: '2022-04-01T14:26:34.404Z'
+    - cdocker/docker-engine@20.10.11-r0 > containerd/containerd@1.5.8-r0:
+      reason: Improper Preservation of Permissions
+      expires: '2022-04-01T14:26:34.404Z'
+    - containerd/containerd-openrc@1.5.8-r0:
+      reason: Improper Preservation of Permissions
+      expires: '2022-04-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-WGET-1277613:
+    - wget/wget@1.21.2-2+b1:
+      reason: Open Redirect
+      expires: '2022-04-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-EXPAT-2329088:
+    - git@1:2.34.1-1 > expat/libexpat1@2.4.1-3:
+      reason: Resource Exhaustion
+      expires: '2022-04-01T14:26:34.404Z'
+    - nodejs@14.18.2-deb-1nodesource1 > python3-defaults/python3-minimal@3.9.8-1 > python3.9/python3.9-minimal@3.9.9-2 > expat/libexpat1@2.4.1-3:
+      reason: Resource Exhaustion
+      expires: '2022-04-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-EXPAT-2330885:
+    - git@1:2.34.1-1 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+    - nodejs@14.18.2-deb-1nodesource1 > python3-defaults/python3-minimal@3.9.8-1 > python3.9/python3.9-minimal@3.9.9-2 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-EXPAT-2331794:
+    - git@1:2.34.1-1 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+    - nodejs@14.18.2-deb-1nodesource1 > python3-defaults/python3-minimal@3.9.8-1 > python3.9/python3.9-minimal@3.9.9-2 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-EXPAT-2331797:
+    - git@1:2.34.1-1 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+    - nodejs@14.18.2-deb-1nodesource1 > python3-defaults/python3-minimal@3.9.8-1 > python3.9/python3.9-minimal@3.9.9-2 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-EXPAT-2331809:
+    - git@1:2.34.1-1 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+    - nodejs@14.18.2-deb-1nodesource1 > python3-defaults/python3-minimal@3.9.8-1 > python3.9/python3.9-minimal@3.9.9-2 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-EXPAT-2331801:
+    - git@1:2.34.1-1 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+    - nodejs@14.18.2-deb-1nodesource1 > python3-defaults/python3-minimal@3.9.8-1 > python3.9/python3.9-minimal@3.9.9-2 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-EXPAT-2331810:
+    - git@1:2.34.1-1 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+    - nodejs@14.18.2-deb-1nodesource1 > python3-defaults/python3-minimal@3.9.8-1 > python3.9/python3.9-minimal@3.9.9-2 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-EXPAT-2331821:
+    - git@1:2.34.1-1 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+    - nodejs@14.18.2-deb-1nodesource1 > python3-defaults/python3-minimal@3.9.8-1 > python3.9/python3.9-minimal@3.9.9-2 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-EXPAT-2359257:
+    - git@1:2.34.1-1 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+    - nodejs@14.18.2-deb-1nodesource1 > python3-defaults/python3-minimal@3.9.8-1 > python3.9/python3.9-minimal@3.9.9-2 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-EXPAT-2384930:
+    - git@1:2.34.1-1 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+    - nodejs@14.18.2-deb-1nodesource1 > python3-defaults/python3-minimal@3.9.8-1 > python3.9/python3.9-minimal@3.9.9-2 > expat/libexpat1@2.4.1-3:
+      reason: Integer Overflow or Wraparound
+      expires: '2022-04-01T14:26:34.404Z'
+patch: {}
