@@ -2,7 +2,7 @@
 version: 2.1
 
 orbs:
-  executor-tools: twdps/executor-tools@0.3.0
+  executor-tools: twdps/executor-tools@0.4.0
 
 # ================================================================= global pipeline parameters
 
@@ -14,7 +14,7 @@ parameters:
   shell-options:
     description: shell options for all jobs
     type: string
-    default: secrethub run --env-file secrethub.env -- /bin/bash -eo pipefail
+    default: op run --env-file op.env -- /bin/bash -eo pipefail
 
 on-push-main: &on-push-main
   branches:
@@ -51,7 +51,7 @@ workflows:
             - run:
                 name: inject environment variables
                 command: |
-                  secrethub inject -i secrethub.env -o $BASH_ENV
+                  op inject -i op.env -o $BASH_ENV
                   source $BASH_ENV
           filters: *on-push-main
 
@@ -84,7 +84,7 @@ workflows:
             - run:
                 name: inject environment variables
                 command: |
-                  secrethub inject -i secrethub.env -o $BASH_ENV
+                  op inject -i op.env -o $BASH_ENV
                   source $BASH_ENV
           filters: *on-push-main
 
@@ -133,7 +133,7 @@ workflows:
             - run:
                 name: inject environment variables
                 command: |
-                  secrethub inject -i secrethub.env -o $BASH_ENV
+                  op inject -i op.env -o $BASH_ENV
                   source $BASH_ENV
 
       - executor-tools/machine-executor-dev-release:
@@ -153,5 +153,5 @@ workflows:
             - run:
                 name: inject environment variables
                 command: |
-                  secrethub inject -i secrethub.env -o $BASH_ENV
+                  op inject -i op.env -o $BASH_ENV
                   source $BASH_ENV
