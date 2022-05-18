@@ -12,4 +12,10 @@ ignore:
     - docker/docker-engine@20.10.16-r0:
       reason: CVE-2022-29526
       expires: '2022-08-01T14:26:34.404Z'
+    - docker/docker@20.10.16-r0 > docker/docker-engine@20.10.16-r0:
+      reason: CVE-2022-29526
+      expires: '2022-08-01T14:26:34.404Z'
+    - docker/docker-openrc@20.10.16-r0:
+      reason: CVE-2022-29526
+      expires: '2022-08-01T14:26:34.404Z'
 patch: {}
