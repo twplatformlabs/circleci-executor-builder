@@ -2,7 +2,7 @@
 
 @test "gpg version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge gpg --version"
-  [[ "${output}" =~ "2.2.31" ]]
+  [[ "${output}" =~ "2.2.35" ]]
 }
 
 @test "docker health" {
