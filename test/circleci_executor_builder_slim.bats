@@ -22,17 +22,17 @@
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge snyk --version"
-  [[ "${output}" =~ "1.931.0" ]]
+  [[ "${output}" =~ "1.945.0" ]]
 }
 
 @test "bats version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge bats -v"
-  [[ "${output}" =~ "1.6.0" ]]
+  [[ "${output}" =~ "1.7.0" ]]
 }
 
 @test "inspec version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge inspec --version"
-  [[ "${output}" =~ "5.14.0" ]]
+  [[ "${output}" =~ "5.17.4" ]]
 }
 
 @test "conftest version" {

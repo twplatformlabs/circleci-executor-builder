@@ -1,15 +1,5 @@
 #!/usr/bin/env bats
 
-@test "curl version" {
-  run bash -c "docker exec circleci-executor-builder-alpine-edge curl --version"
-  [[ "${output}" =~ "7.80.0" ]]
-}
-
-@test "wget version" {
-  run bash -c "docker exec circleci-executor-builder-alpine-edge wget --version"
-  [[ "${output}" =~ "1.21.2" ]]
-}
-
 @test "gpg version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge gpg --version"
   [[ "${output}" =~ "2.2.31" ]]
@@ -22,17 +12,17 @@
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge snyk --version"
-  [[ "${output}" =~ "1.931.0" ]]
+  [[ "${output}" =~ "1.945.0" ]]
 }
 
 @test "bats version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge bats -v"
-  [[ "${output}" =~ "1.6.0" ]]
+  [[ "${output}" =~ "1.7.0" ]]
 }
 
 @test "inspec version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge inspec --version"
-  [[ "${output}" =~ "5.14.0" ]]
+  [[ "${output}" =~ "5.17.4" ]]
 }
 
 @test "conftest version" {
