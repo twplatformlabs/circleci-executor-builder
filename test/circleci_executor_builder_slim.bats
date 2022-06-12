@@ -17,7 +17,7 @@
 
 @test "docker health" {
   run bash -c "docker exec circleci-executor-builder-slim-edge docker version"
-  [[ "${output}" =~ "20.10.16" ]]
+  [[ "${output}" =~ "20.10.17" ]]
 }
 
 @test "snyk version" {
