@@ -27,7 +27,7 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
                  docker-ce=5:20.10.16~3-0~debian-bullseye && \
     sudo bash -c "curl -sL https://deb.nodesource.com/setup_16.x | bash - " && \
     sudo apt-get install --no-install-recommends -y \
-                 nodejs=16.15.0-deb-1nodesource1 && \
+                 nodejs=16.15.1-deb-1nodesource1 && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
     sudo bash -c "sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && locale-gen" && \
