@@ -2,7 +2,7 @@
 
 @test "curl version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge curl --version"
-  [[ "${output}" =~ "7.83" ]]
+  [[ "${output}" =~ "7.84" ]]
 }
 
 @test "wget version" {
