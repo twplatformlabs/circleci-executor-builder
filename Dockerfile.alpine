@@ -1,19 +1,19 @@
-FROM twdps/circleci-base-image:alpine-3.9.0
+FROM twdps/circleci-base-image:alpine-3.10.0
 
 LABEL maintainer=<nchenewe@thoughtworks.com>
 
-ENV CONFTEST_VERSION=0.32.0
+ENV CONFTEST_VERSION=0.34.0
 
 # hadolint ignore=DL3004
 RUN sudo apk add --no-cache \
-             gnupg==2.2.35-r3 \
-             docker==20.10.16-r0 \
+             gnupg==2.2.35-r4 \
+             docker==20.10.16-r2 \
              openrc==0.44.10-r7 \
-             nodejs==16.15.0-r1 \
+             nodejs==16.16.0-r0 \
              npm==8.10.0-r0 \
              ruby==3.1.2-r0 \
              ruby-webrick==1.7.0-r1 \
-             ruby-bundler==2.3.14-r0 && \
+             ruby-bundler==2.3.14-r1 && \
     sudo apk add --no-cache --virtual build-dependencies \
              ruby-dev==3.1.2-r0 \
              libffi-dev==3.4.2-r1 \
@@ -21,11 +21,11 @@ RUN sudo apk add --no-cache \
              gcc==11.2.1_git20220219-r2 \
              make==4.3-r0 && \
     sudo npm install -g \
-             snyk@1.945.0 \
+             snyk@1.989.0 \
              bats@1.7.0 \
              github-release-notes@0.17.3 && \
     sudo gem install --no-document \
-             inspec-bin:5.17.4 && \
+             inspec-bin:5.18.14 && \
     wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo mv conftest /usr/local/bin && rm ./* && \
