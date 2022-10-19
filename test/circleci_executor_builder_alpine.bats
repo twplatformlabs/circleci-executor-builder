@@ -7,17 +7,17 @@
 
 @test "docker health" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge docker version"
-  [[ "${output}" =~ "20.10.16" ]]
+  [[ "${output}" =~ "20.10.18" ]]
 }
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge snyk --version"
-  [[ "${output}" =~ "1.989.0" ]]
+  [[ "${output}" =~ "1.1034.0" ]]
 }
 
 @test "bats version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge bats -v"
-  [[ "${output}" =~ "1.7.0" ]]
+  [[ "${output}" =~ "1.8.0" ]]
 }
 
 @test "inspec version" {

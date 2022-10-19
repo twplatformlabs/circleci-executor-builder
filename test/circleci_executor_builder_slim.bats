@@ -22,12 +22,12 @@
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge snyk --version"
-  [[ "${output}" =~ "1.989.0" ]]
+  [[ "${output}" =~ "1.1034.0" ]]
 }
 
 @test "bats version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge bats -v"
-  [[ "${output}" =~ "1.7.0" ]]
+  [[ "${output}" =~ "1.8.0" ]]
 }
 
 @test "inspec version" {
