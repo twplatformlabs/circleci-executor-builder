@@ -2,7 +2,7 @@
 
 @test "curl version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge curl --version"
-  [[ "${output}" =~ "7.84" ]]
+  [[ "${output}" =~ "7.85" ]]
 }
 
 @test "wget version" {
@@ -12,12 +12,12 @@
 
 @test "gpg version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge gpg --version"
-  [[ "${output}" =~ "2.2.35" ]]
+  [[ "${output}" =~ "2.2.39" ]]
 }
 
 @test "docker health" {
   run bash -c "docker exec circleci-executor-builder-slim-edge docker version"
-  [[ "${output}" =~ "20.10.17" ]]
+  [[ "${output}" =~ "20.10.20" ]]
 }
 
 @test "snyk version" {

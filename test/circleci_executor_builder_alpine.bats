@@ -7,7 +7,7 @@
 
 @test "docker health" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge docker version"
-  [[ "${output}" =~ "20.10.18" ]]
+  [[ "${output}" =~ "20.10.20" ]]
 }
 
 @test "snyk version" {
