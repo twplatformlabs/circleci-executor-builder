@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:slim-3.10.0
+FROM twdps/circleci-base-image:slim-4.0.0
 
 LABEL maintainer=<nchenewe@thoughtworks.com>
 
@@ -11,30 +11,31 @@ SHELL ["/bin/bash", "-exo", "pipefail", "-c"]
 RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90circleci" && \
     sudo bash -c "echo 'DPkg::Options \"--force-confnew\";' >> /etc/apt/apt.conf.d/90circleci" && sudo apt-get update && \
     sudo apt-get install --no-install-recommends -y \
-            curl=7.84.0-2 \
+            curl=7.85.0-1 \
             wget=1.21.3-1+b2 \
-            gnupg=2.2.35-3 \
-            apt-transport-https=2.5.2 \
-            lsb-release=11.2 \
-            ruby-full=1:3.0+1 \
-            gcc=4:12.1.0-3 \
-            g++=4:12.1.0-3 \
+            gnupg=2.2.39-1 \
+            apt-transport-https=2.5.3 \
+            lsb-release=12.0-1 \
+            ruby-full=1:3.0+3.1 \
+            gcc=4:12.2.0-1 \
+            g++=4:12.2.0-1 \
             make=4.3-4.1 \
-            libcurl3-gnutls=7.84.0-2 && \
-    sudo bash -c "curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg" && \
-    sudo bash -c "echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bullseye stable\" | tee /etc/apt/sources.list.d/docker.list > /dev/null" && sudo apt-get update && \
+            libcurl3-gnutls=7.85.0-1 && \
+    sudo mkdir -p /etc/apt/keyrings && \
+    sudo bash -c "curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg" && \
+    sudo bash -c "echo \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable\" | tee /etc/apt/sources.list.d/docker.list > /dev/null" && sudo apt-get update && \
     sudo apt-get install --no-install-recommends -y \
-                 docker-ce=5:20.10.17~3-0~debian-bullseye && \
-    sudo bash -c "curl -sL https://deb.nodesource.com/setup_16.x | bash - " && \
+                 docker-ce=5:20.10.20~3-0~debian-bullseye \
+                 docker-compose-plugin=2.12.0~debian-bullseye && \
     sudo apt-get install --no-install-recommends -y \
-                 nodejs=18.7.0+dfsg-1 \
-                 npm=8.17.0~ds1-1 && \
+                 nodejs=18.10.0+dfsg-6 \
+                 npm=8.19.2~ds1-2 && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
     sudo bash -c "sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && locale-gen" && \
     sudo npm install -g \
-             snyk@1.989.0 \
-             bats@1.7.0 \
+             snyk@1.1034.0 \
+             bats@1.8.0 \
              github-release-notes@0.17.3 && \
     sudo gem install --no-document \
              inspec-bin:5.18.14 && \

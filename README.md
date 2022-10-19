@@ -19,6 +19,7 @@ The DPS builder includes the following:
 | docker   | curl       | bats     |
 | ruby     | wget       | inspec   |
 | nodejs   | gnupg      | conftest |
-| gren     |            | snyk     |
+| npm      |            | snyk     |
+| gren     |            |          |
 
 See release notes for for detailed version information.  
