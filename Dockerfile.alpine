@@ -7,7 +7,7 @@ ENV CONFTEST_VERSION=0.34.0
 # hadolint ignore=DL3004
 RUN sudo apk add --no-cache \
              gnupg==2.2.35-r4 \
-             docker==20.10.18-r1 \
+             docker==20.10.20-r0 \
              openrc==0.44.10-r7 \
              nodejs==16.17.1-r0 \
              npm==8.10.0-r0 \
