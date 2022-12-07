@@ -1,28 +1,28 @@
-FROM twdps/circleci-base-image:alpine-4.0.0
+FROM twdps/circleci-base-image:alpine-4.1.0
 
 LABEL maintainer=<nchenewe@thoughtworks.com>
 
-ENV CONFTEST_VERSION=0.34.0
+ENV CONFTEST_VERSION=0.36.0
 
 # hadolint ignore=DL3004
 RUN sudo apk add --no-cache \
-             gnupg==2.2.35-r4 \
-             docker==20.10.20-r0 \
-             openrc==0.44.10-r7 \
-             nodejs==16.17.1-r0 \
-             npm==8.10.0-r0 \
-             ruby==3.1.2-r0 \
+             gnupg==2.2.40-r0 \
+             docker==20.10.21-r1 \
+             openrc==0.45.2-r7 \
+             nodejs==18.12.1-r0 \
+             npm==9.1.2-r0 \
+             ruby==3.1.3-r0 \
              ruby-webrick==1.7.0-r1 \
-             ruby-bundler==2.3.14-r1 && \
+             ruby-bundler==2.3.26-r0 && \
     sudo apk add --no-cache --virtual build-dependencies \
-             ruby-dev==3.1.2-r0 \
-             libffi-dev==3.4.2-r1 \
-             g++==11.2.1_git20220219-r2 \
-             gcc==11.2.1_git20220219-r2 \
-             make==4.3-r0 && \
+             ruby-dev==3.1.3-r0 \
+             libffi-dev==3.4.4-r0 \
+             g++==12.2.1_git20220924-r4 \
+             gcc==12.2.1_git20220924-r4 \
+             make==4.3-r1 && \
     sudo npm install -g \
-             snyk@1.1034.0 \
-             bats@1.8.0 \
+             snyk@1.1069.0 \
+             bats@1.8.2 \
              github-release-notes@0.17.3 && \
     sudo gem install --no-document \
              inspec-bin:5.18.14 && \
