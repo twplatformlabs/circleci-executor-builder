@@ -72,7 +72,7 @@ workflows:
           dockerfile: Dockerfile.slim
           image: twdps/circleci-executor-builder
           tag: slim-edge
-          docker-cve-scan: false
+          docker-cve-scan: true
           snyk-organization: twdps
           cis-docker-image-scan: true
           skip-base-image: true
