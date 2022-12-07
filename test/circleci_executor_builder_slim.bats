@@ -1,33 +1,18 @@
 #!/usr/bin/env bats
 
-@test "curl version" {
-  run bash -c "docker exec circleci-executor-builder-slim-edge curl --version"
-  [[ "${output}" =~ "7.85" ]]
-}
-
-@test "wget version" {
-  run bash -c "docker exec circleci-executor-builder-slim-edge wget --version"
-  [[ "${output}" =~ "1.21" ]]
-}
-
-@test "gpg version" {
-  run bash -c "docker exec circleci-executor-builder-slim-edge gpg --version"
-  [[ "${output}" =~ "2.2.39" ]]
-}
-
 @test "docker health" {
   run bash -c "docker exec circleci-executor-builder-slim-edge docker version"
-  [[ "${output}" =~ "20.10.20" ]]
+  [[ "${output}" =~ "20.10.21" ]]
 }
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge snyk --version"
-  [[ "${output}" =~ "1.1034.0" ]]
+  [[ "${output}" =~ "1.1069.0" ]]
 }
 
 @test "bats version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge bats -v"
-  [[ "${output}" =~ "1.8.0" ]]
+  [[ "${output}" =~ "1.8.2" ]]
 }
 
 @test "inspec version" {
@@ -37,7 +22,7 @@
 
 @test "conftest version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge conftest --version"
-  [[ "${output}" =~ "0.34.0" ]]
+  [[ "${output}" =~ "0.36.0" ]]
 }
 
 @test "gren version" {
