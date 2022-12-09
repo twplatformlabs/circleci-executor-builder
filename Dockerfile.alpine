@@ -2,7 +2,7 @@ FROM twdps/circleci-base-image:alpine-4.1.0
 
 LABEL maintainer=<nchenewe@thoughtworks.com>
 
-ENV CONFTEST_VERSION=0.34.0
+ENV CONFTEST_VERSION=0.36.0
 
 # hadolint ignore=DL3004
 RUN sudo apk add --no-cache \
@@ -20,12 +20,13 @@ RUN sudo apk add --no-cache \
              g++==12.2.1_git20220924-r4 \
              gcc==12.2.1_git20220924-r4 \
              make==4.3-r1 && \
+    sudo gem install --no-document \
+             inspec-bin:5.18.14 && \
     sudo npm install -g \
              snyk@1.1069.0 \
              bats@1.8.2 \
              github-release-notes@0.17.3 && \
-    sudo gem install --no-document \
-             inspec-bin:5.18.14 && \
+    sudo chown -R root:root /usr/local/lib/node_modules && \
     wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo mv conftest /usr/local/bin && rm ./* && \
