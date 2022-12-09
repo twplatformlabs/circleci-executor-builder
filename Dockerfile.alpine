@@ -2,7 +2,7 @@ FROM twdps/circleci-base-image:alpine-4.1.0
 
 LABEL maintainer=<nchenewe@thoughtworks.com>
 
-ENV CONFTEST_VERSION=0.36.0
+ENV CONFTEST_VERSION=0.34.0
 
 # hadolint ignore=DL3004
 RUN sudo apk add --no-cache \
@@ -26,8 +26,8 @@ RUN sudo apk add --no-cache \
              github-release-notes@0.17.3 && \
     sudo gem install --no-document \
              inspec-bin:5.18.14 && \
-    sudo wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
-    sudo tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
+    wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
+    tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo mv conftest /usr/local/bin && rm ./* && \
     sudo rc-update add docker boot && \
     sudo apk del build-dependencies
