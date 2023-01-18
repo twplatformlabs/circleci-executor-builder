@@ -2,20 +2,14 @@
 version: v1.22.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
-  # SNYK-ALPINE315-DOCKER-2825195:
-  #   - docker/docker-cli@20.10.16-r0:
-  #     reason: CVE-2022-29526
-  #     expires: '2022-08-01T14:26:34.404Z'
-  #   - docker/docker@20.10.16-r0 > docker/docker-cli@20.10.16-r0:
-  #     reason: CVE-2022-29526
-  #     expires: '2022-08-01T14:26:34.404Z'
-  #   - docker/docker-engine@20.10.16-r0:
-  #     reason: CVE-2022-29526
-  #     expires: '2022-08-01T14:26:34.404Z'
-  #   - docker/docker@20.10.16-r0 > docker/docker-engine@20.10.16-r0:
-  #     reason: CVE-2022-29526
-  #     expires: '2022-08-01T14:26:34.404Z'
-  #   - docker/docker-openrc@20.10.16-r0:
-  #     reason: CVE-2022-29526
-  #     expires: '2022-08-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-OPENSSL-3168235:
+    - ca-certificates@20211016 > openssl@3.0.7-1:
+      reason: Improper Locking
+      expires: '2023-03-01T14:26:34.404Z'
+    - meta-common-packages@meta > openssl/libssl3@3.0.7-1:
+      reason: Improper Locking
+      expires: '2023-03-01T14:26:34.404Z'
+    - npm@9.2.0~ds1-1 > node-gyp@9.3.0-2 > nodejs/libnode-dev@18.13.0+dfsg1-1 > openssl/libssl-dev@3.0.7-1:
+      reason: Improper Locking
+      expires: '2023-03-01T14:26:34.404Z'
 patch: {}
