@@ -1,8 +1,13 @@
 FROM twdps/circleci-base-image:alpine-stable
 
-LABEL maintainer=<nchenewe@thoughtworks.com>
+LABEL org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
+      org.opencontainers.image.description="Alpine-based CircleCI executor image" \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.source="https://github.com/ThoughtWorks-DPS/circleci-executor-builder" \
+      org.opencontainers.image.title="circleci-executor-builder" \
+      org.opencontainers.image.vendor="ThoughtWorks, Inc."
 
-ENV CONFTEST_VERSION=0.36.0
+ENV CONFTEST_VERSION=0.38.0
 
 # hadolint ignore=DL3004
 RUN sudo apk add --no-cache \
