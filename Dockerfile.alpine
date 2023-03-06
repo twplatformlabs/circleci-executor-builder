@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:alpine-4.2.0
+FROM twdps/circleci-base-image:alpine-4.4.0
 
 LABEL org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
       org.opencontainers.image.description="Alpine-based CircleCI executor image" \
@@ -7,14 +7,14 @@ LABEL org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
       org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.vendor="ThoughtWorks, Inc."
 
-ENV CONFTEST_VERSION=0.38.0
+ENV CONFTEST_VERSION=0.39.2
 
 # hadolint ignore=DL3004
 RUN sudo apk add --no-cache \
              gnupg==2.2.40-r0 \
-             docker==20.10.21-r2 \
+             docker==20.10.21-r3 \
              openrc==0.45.2-r7 \
-             nodejs==18.12.1-r0 \
+             nodejs==18.14.2-r0 \
              npm==9.1.2-r0 \
              ruby==3.1.3-r0 \
              ruby-webrick==1.7.0-r1 \
@@ -26,10 +26,10 @@ RUN sudo apk add --no-cache \
              gcc==12.2.1_git20220924-r4 \
              make==4.3-r1 && \
     sudo gem install --no-document \
-             inspec-bin:5.18.14 && \
+             inspec-bin:5.21.29 && \
     sudo npm install -g \
-             snyk@1.1087.0 \
-             bats@1.8.2 \
+             snyk@1.1111.0 \
+             bats@1.9.0 \
              github-release-notes@0.17.3 && \
     sudo chown -R root:root /usr/local/lib/node_modules && \
     wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
