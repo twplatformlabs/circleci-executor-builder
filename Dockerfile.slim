@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:slim-4.4.0
+FROM ghcr.io/thoughtworks-dps/twdps/circleci-base-image:slim-5.0.0
 
 LABEL org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
       org.opencontainers.image.description="Debian-based CircleCI executor image" \
@@ -8,6 +8,7 @@ LABEL org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
       org.opencontainers.image.vendor="ThoughtWorks, Inc."
 
 ENV CONFTEST_VERSION=0.39.2
+ENV COSIGN_VERSION=1.13.1
 
 ENV DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-exo", "pipefail", "-c"]
@@ -41,7 +42,9 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
              inspec-bin:5.21.29 && \
     wget https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
-    sudo mv conftest /usr/local/bin && sudo rm ./*
+    sudo mv conftest /usr/local/bin && sudo rm ./* && \
+    curl -L https://storage.googleapis.com/cosign-releases/v${COSIGN_VERSION}/cosign-linux-amd64 -o cosign && \
+    chmod +x cosign && sudo mv cosign /usr/local/bin/cosign
 
 COPY inspec /etc/chef/accepted_licenses/inspec
 

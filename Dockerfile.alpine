@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:alpine-4.4.0
+FROM ghcr.io/thoughtworks-dps/twdps/circleci-base-image:alpine-5.0.0
 
 LABEL org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
       org.opencontainers.image.description="Alpine-based CircleCI executor image" \
@@ -8,6 +8,7 @@ LABEL org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
       org.opencontainers.image.vendor="ThoughtWorks, Inc."
 
 ENV CONFTEST_VERSION=0.39.2
+ENV COSIGN_VERSION=1.13.1
 
 # hadolint ignore=DL3004
 RUN sudo apk add --no-cache \
@@ -35,6 +36,8 @@ RUN sudo apk add --no-cache \
     wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo mv conftest /usr/local/bin && rm ./* && \
+    curl -L https://storage.googleapis.com/cosign-releases/v${COSIGN_VERSION}/cosign-linux-amd64 -o cosign && \
+    chmod +x cosign && sudo mv cosign /usr/local/bin/cosign && \
     sudo rc-update add docker boot && \
     sudo apk del build-dependencies
 
