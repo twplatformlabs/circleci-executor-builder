@@ -43,7 +43,7 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
     wget https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo mv conftest /usr/local/bin && sudo rm ./* && \
-    curl -L https://storage.googleapis.com/cosign-releases/v${COSIGN_VERSION}/cosign-linux-amd64 -o cosign && \
+    wget https://storage.googleapis.com/cosign-releases/v${COSIGN_VERSION}/cosign-linux-amd64 -o cosign && \
     chmod +x cosign && sudo mv cosign /usr/local/bin/cosign
 
 COPY inspec /etc/chef/accepted_licenses/inspec
