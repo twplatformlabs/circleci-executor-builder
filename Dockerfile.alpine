@@ -36,8 +36,8 @@ RUN sudo apk add --no-cache \
     wget --quiet https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo mv conftest /usr/local/bin && rm ./* && \
-    wget https://storage.googleapis.com/cosign-releases/v${COSIGN_VERSION}/cosign-linux-amd64 -o cosign && \
-    chmod +x cosign && sudo mv cosign /usr/local/bin/cosign && rm cosign-linux-amd64 && \
+    wget https://storage.googleapis.com/cosign-releases/v${COSIGN_VERSION}/cosign-linux-amd64 && \
+    chmod +x cosign-linux-amd64 && sudo mv cosign-linux-amd64 /usr/local/bin/cosign && \
     sudo rc-update add docker boot && \
     sudo apk del build-dependencies
 
