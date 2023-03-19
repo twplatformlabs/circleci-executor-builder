@@ -37,7 +37,7 @@ RUN sudo apk add --no-cache \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo mv conftest /usr/local/bin && rm ./* && \
     wget https://storage.googleapis.com/cosign-releases/v${COSIGN_VERSION}/cosign-linux-amd64 -o cosign && \
-    chmod +x cosign && sudo mv cosign /usr/local/bin/cosign && \
+    chmod +x cosign && sudo mv cosign /usr/local/bin/cosign && rm cosign-linux-amd64 && \
     sudo rc-update add docker boot && \
     sudo apk del build-dependencies
 
