@@ -10,7 +10,7 @@ LABEL org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
 ENV CONFTEST_VERSION=0.39.2
 ENV COSIGN_VERSION=1.13.1
 
-# hadolint ignore=DL3004
+# hadolint ignore=DL3004,DL3047
 RUN sudo apk add --no-cache \
              gnupg==2.2.40-r0 \
              docker==20.10.21-r3 \
