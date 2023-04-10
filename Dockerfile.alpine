@@ -1,27 +1,33 @@
-FROM ghcr.io/thoughtworks-dps/twdps/circleci-base-image:alpine-5.0.0
+FROM twdps/circleci-base-image:alpine-6.0.0
 
-LABEL org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
+LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.description="Alpine-based CircleCI executor image" \
-      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.documentation="https://github.com/ThoughtWorks-DPS/circleci-executor-builder" \
       org.opencontainers.image.source="https://github.com/ThoughtWorks-DPS/circleci-executor-builder" \
-      org.opencontainers.image.title="circleci-executor-builder" \
-      org.opencontainers.image.vendor="ThoughtWorks, Inc."
+      org.opencontainers.image.url="https://github.com/ThoughtWorks-DPS/circleci-executor-builder" \
+      org.opencontainers.image.vendor="ThoughtWorks, Inc." \
+      org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.created="CREATED" \
+      org.opencontainers.image.version="VERSION"
 
 ENV CONFTEST_VERSION=0.39.2
-ENV COSIGN_VERSION=1.13.1
+ENV COSIGN_VERSION=2.0.1
+ENV SYFT_VERSION=0.76.1
+ENV ORAS_VERSION=1.0.0
 
 # hadolint ignore=DL3004,DL3047
 RUN sudo apk add --no-cache \
              gnupg==2.2.40-r0 \
-             docker==20.10.21-r3 \
+             docker==20.10.24-r0 \
              openrc==0.45.2-r7 \
              nodejs==18.14.2-r0 \
              npm==9.1.2-r0 \
-             ruby==3.1.3-r0 \
+             ruby==3.1.4-r0 \
              ruby-webrick==1.7.0-r1 \
              ruby-bundler==2.3.26-r0 && \
     sudo apk add --no-cache --virtual build-dependencies \
-             ruby-dev==3.1.3-r0 \
+             ruby-dev==3.1.4-r0 \
              libffi-dev==3.4.4-r0 \
              g++==12.2.1_git20220924-r4 \
              gcc==12.2.1_git20220924-r4 \
@@ -38,6 +44,12 @@ RUN sudo apk add --no-cache \
     sudo mv conftest /usr/local/bin && rm ./* && \
     wget https://storage.googleapis.com/cosign-releases/v${COSIGN_VERSION}/cosign-linux-amd64 && \
     chmod +x cosign-linux-amd64 && sudo mv cosign-linux-amd64 /usr/local/bin/cosign && \
+    sudo bash -c "curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin v${SYFT_VERSION}" && \
+    curl -LO "https://github.com/oras-project/oras/releases/download/v${ORAS_VERSION}/oras_${ORAS_VERSION}_linux_amd64.tar.gz" && \
+    mkdir -p oras-install && \
+    tar -zxf oras_${ORAS_VERSION}_*.tar.gz -C oras-install/ && \
+    sudo mv oras-install/oras /usr/local/bin/ && \
+    rm -rf oras_${ORAS_VERSION}_*.tar.gz oras-install/ && \
     sudo rc-update add docker boot && \
     sudo apk del build-dependencies
 

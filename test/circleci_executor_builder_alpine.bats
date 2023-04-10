@@ -34,3 +34,18 @@
   run bash -c "docker exec circleci-executor-builder-alpine-edge gren --version"
   [[ "${output}" =~ "0.17.3" ]]
 }
+
+@test "cosign version" {
+  run bash -c "docker exec circleci-executor-builder-alpine-edge cosign version"
+  [[ "${output}" =~ "2.0.1" ]]
+}
+
+@test "syft version" {
+  run bash -c "docker exec circleci-executor-builder-alpine-edge syft version"
+  [[ "${output}" =~ "0.76.1" ]]
+}
+
+@test "oras version" {
+  run bash -oras "docker exec circleci-executor-builder-alpine-edge oras version"
+  [[ "${output}" =~ "1.0.0" ]]
+}
