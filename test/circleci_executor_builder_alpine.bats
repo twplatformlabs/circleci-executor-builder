@@ -7,7 +7,7 @@
 
 @test "docker health" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge docker version"
-  [[ "${output}" =~ "20.10.21" ]]
+  [[ "${output}" =~ "20.10.24" ]]
 }
 
 @test "snyk version" {
@@ -46,6 +46,6 @@
 }
 
 @test "oras version" {
-  run bash -oras "docker exec circleci-executor-builder-alpine-edge oras version"
+  run bash -c "docker exec circleci-executor-builder-alpine-edge oras version"
   [[ "${output}" =~ "1.0.0" ]]
 }
