@@ -60,6 +60,9 @@ ignore:
     - golang.org/x/sys/unix@v0.0.0-20211113001501-0c823b97ae02:
       reasion: Incorrect Privilege Assignment
       expires: '2023-06-01T14:26:34.404Z'
+    - golang.org/x/sys/unix@v0.0.0-20220715151400-c0bba94af5f8:
+      reasion: Incorrect Privilege Assignment
+      expires: '2023-06-01T14:26:34.404Z'
   SNYK-DEBIANUNSTABLE-NODEJS-3330758:
     - meta-common-packages@meta > nodejs@18.13.0+dfsg1-1:
       reason: Untrusted Search Path
@@ -98,7 +101,6 @@ ignore:
     - github.com/hashicorp/go-getter@v1.6.1:
       reason: Denial of Service
       expires: '2023-06-01T14:26:34.404Z'
-  
   SNYK-GOLANG-GOLANGORGXNETHTTP2HPACK-3358253:
     - golang.org/x/net/http2/hpack@v0.0.0-20221012135044-0b7e1fb9d458:
       reason: Denial of Service
@@ -112,16 +114,35 @@ ignore:
     - golang.org/x/net/http2/hpack@v0.0.0-20211112202133-69e39bad7dc2:
       reason: Denial of Service
       expires: '2023-06-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-OPENSSL-5291772:
+    - ca-certificates@20230311 > openssl@3.0.8-1:
+      reason: Improper Certificate Validation
+      expires: '2023-06-01T14:26:34.404Z'
+    - meta-common-packages@meta > openssl/libssl3@3.0.8-1:
+      reason: Improper Certificate Validation
+      expires: '2023-06-01T14:26:34.404Z'
+    - npm@9.2.0~ds1-1 > node-gyp@9.3.0-2 > nodejs/libnode-dev@18.13.0+dfsg1-1 > openssl/libssl-dev@3.0.8-1:
+      reason: Improper Certificate Validation
+      expires: '2023-06-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-OPENSSL-5291774:
+    - ca-certificates@20230311 > openssl@3.0.8-1:
+      reason: Improper Certificate Validation
+      expires: '2023-06-01T14:26:34.404Z'
+    - meta-common-packages@meta > openssl/libssl3@3.0.8-1:
+      reason: Improper Certificate Validation
+      expires: '2023-06-01T14:26:34.404Z'
+    - npm@9.2.0~ds1-1 > node-gyp@9.3.0-2 > nodejs/libnode-dev@18.13.0+dfsg1-1 > openssl/libssl-dev@3.0.8-1:
+      reason: Improper Certificate Validation
+      expires: '2023-06-01T14:26:34.404Z'
+  SNYK-DEBIANUNSTABLE-OPENSSL-3368734:
+    - ca-certificates@20230311 > openssl@3.0.8-1:
+      reason: Improper Certificate Validation
+      expires: '2023-06-01T14:26:34.404Z'
+    - meta-common-packages@meta > openssl/libssl3@3.0.8-1:
+      reason: Improper Certificate Validation
+      expires: '2023-06-01T14:26:34.404Z'
+    - npm@9.2.0~ds1-1 > node-gyp@9.3.0-2 > nodejs/libnode-dev@18.13.0+dfsg1-1 > openssl/libssl-dev@3.0.8-1:
+      reason: Improper Certificate Validation
+      expires: '2023-06-01T14:26:34.404Z'
 
-
-  # SNYK-DEBIANUNSTABLE-OPENSSL-3168235:
-  #   - ca-certificates@20211016 > openssl@3.0.7-1:
-  #     reason: Improper Locking
-  #     expires: '2023-03-01T14:26:34.404Z'
-  #   - meta-common-packages@meta > openssl/libssl3@3.0.7-1:
-  #     reason: Improper Locking
-  #     expires: '2023-03-01T14:26:34.404Z'
-  #   - npm@9.2.0~ds1-1 > node-gyp@9.3.0-2 > nodejs/libnode-dev@18.13.0+dfsg1-1 > openssl/libssl-dev@3.0.7-1:
-  #     reason: Improper Locking
-  #     expires: '2023-03-01T14:26:34.404Z'
 patch: {}
