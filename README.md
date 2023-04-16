@@ -22,5 +22,9 @@ The DPS builder includes the following:
 | npm      |            | snyk     |
 | gren     |            |          |
 | cosign   |            |          |
+| syft     |            |          |
+| oras     |            |          |
 
-See release notes for for detailed version information.  
+See release notes for detailed version information.  
+
+See thet psk [circleci-remote-docker](https://github.com/ThoughtWorks-DPS/circleci-remote-docker) iamge repository for details image signing and sbom verification used by all twdps PSK executor images.  
