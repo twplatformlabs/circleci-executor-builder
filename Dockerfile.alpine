@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:alpine-6.1.0
+FROM twdps/circleci-base-image:alpine-6.5.0
 
 LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.description="Alpine-based CircleCI executor image" \
@@ -11,15 +11,15 @@ LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.created="CREATED" \
       org.opencontainers.image.version="VERSION"
 
-ENV CONFTEST_VERSION=0.39.2
-ENV COSIGN_VERSION=2.0.1
-ENV SYFT_VERSION=0.76.1
+ENV CONFTEST_VERSION=0.41.0
+ENV COSIGN_VERSION=2.0.2
+ENV SYFT_VERSION=0.79.0
 ENV ORAS_VERSION=1.0.0
 
 # hadolint ignore=DL3004,DL3047
 RUN sudo apk add --no-cache \
              gnupg==2.2.40-r0 \
-             docker==20.10.24-r1 \
+             docker==20.10.24-r2 \
              openrc==0.45.2-r7 \
              nodejs==18.14.2-r0 \
              npm==9.1.2-r0 \
@@ -35,7 +35,7 @@ RUN sudo apk add --no-cache \
     sudo gem install --no-document \
              inspec-bin:5.21.29 && \
     sudo npm install -g \
-             snyk@1.1111.0 \
+             snyk@1.1150.0 \
              bats@1.9.0 \
              github-release-notes@0.17.3 && \
     sudo chown -R root:root /usr/local/lib/node_modules && \
