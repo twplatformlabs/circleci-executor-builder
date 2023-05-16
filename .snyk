@@ -1,8 +1,20 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.22.0
+version: v1.0.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
-  SNYK-ALPINE317-OPENSSL-5438697:
+  SNYK-DEBIAN12-NODEJS-3330754:
+    - '*':
+      expires: 2023-06-01T14:26:34.404Z
+      reason: Runs on ephemeral pipeline executor
+  SNYK-DEBIAN12-NODEJS-3330756:
+    - '*':
+      expires: 2023-06-01T14:26:34.404Z
+      reason: Runs on ephemeral pipeline executor
+  SNYK-DEBIAN12-NODEJS-3330763:
+    - '*':
+      expires: 2023-06-01T14:26:34.404Z
+      reason: Runs on ephemeral pipeline executor
+  SNYK-DEBIAN12-NODEWEBPACK-3358831:
     - '*':
       expires: 2023-06-01T14:26:34.404Z
       reason: Runs on ephemeral pipeline executor

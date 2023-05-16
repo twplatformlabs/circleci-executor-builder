@@ -1,18 +1,8 @@
 #!/usr/bin/env bats
 
-@test "gpg version" {
-  run bash -c "docker exec circleci-executor-builder-alpine-edge gpg --version"
-  [[ "${output}" =~ "2.2" ]]
-}
-
 @test "docker health" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge docker version"
   [[ "${output}" =~ "23.0" ]]
-}
-
-@test "jq version" {
-  run bash -c "docker exec circleci-executor-builder-alpine-edge jq --version"
-  [[ "${output}" =~ "1.6" ]]
 }
 
 @test "snyk version" {
