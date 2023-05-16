@@ -10,6 +10,11 @@
   [[ "${output}" =~ "20.10" ]]
 }
 
+@test "jq version" {
+  run bash -c "docker exec circleci-executor-builder-alpine-edge jq --version"
+  [[ "${output}" =~ "1.6" ]]
+}
+
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge snyk --version"
   [[ "${output}" =~ "1.1150" ]]

@@ -18,14 +18,14 @@ ENV ORAS_VERSION=1.0.0
 
 # hadolint ignore=DL3004,DL3047
 RUN sudo apk add --no-cache \
-             gnupg==2.2.40-r0 \
              docker==20.10.24-r2 \
              openrc==0.45.2-r7 \
              nodejs==18.14.2-r0 \
              npm==9.1.2-r0 \
              ruby==3.1.4-r0 \
              ruby-webrick==1.7.0-r1 \
-             ruby-bundler==2.3.26-r0 && \
+             ruby-bundler==2.3.26-r0 \
+             jq==1.6-r2 && \
     sudo apk add --no-cache --virtual build-dependencies \
              ruby-dev==3.1.4-r0 \
              libffi-dev==3.4.4-r0 \
