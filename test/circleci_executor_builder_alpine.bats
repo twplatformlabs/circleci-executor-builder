@@ -7,7 +7,7 @@
 
 @test "docker health" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge docker version"
-  [[ "${output}" =~ "20.10" ]]
+  [[ "${output}" =~ "23.0" ]]
 }
 
 @test "jq version" {
@@ -17,7 +17,7 @@
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge snyk --version"
-  [[ "${output}" =~ "1.1150" ]]
+  [[ "${output}" =~ "1.1156" ]]
 }
 
 @test "bats version" {
@@ -32,7 +32,7 @@
 
 @test "conftest version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge conftest --version"
-  [[ "${output}" =~ "0.41" ]]
+  [[ "${output}" =~ "0.42" ]]
 }
 
 @test "gren version" {
@@ -47,7 +47,7 @@
 
 @test "syft version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge syft version"
-  [[ "${output}" =~ "0.79" ]]
+  [[ "${output}" =~ "0.80" ]]
 }
 
 @test "oras version" {
