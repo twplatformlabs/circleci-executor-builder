@@ -7,7 +7,7 @@
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge snyk --version"
-  [[ "${output}" =~ "1.1156" ]]
+  [[ "${output}" =~ "1.1184" ]]
 }
 
 @test "bats version" {
@@ -22,7 +22,7 @@
 
 @test "conftest version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge conftest --version"
-  [[ "${output}" =~ "0.42" ]]
+  [[ "${output}" =~ "0.43" ]]
 }
 
 @test "gren version" {
