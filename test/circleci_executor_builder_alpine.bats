@@ -37,7 +37,7 @@
 
 @test "syft version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge syft version"
-  [[ "${output}" =~ "0.80" ]]
+  [[ "${output}" =~ "0.84" ]]
 }
 
 @test "oras version" {
