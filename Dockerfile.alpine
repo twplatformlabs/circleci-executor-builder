@@ -33,7 +33,7 @@ RUN sudo apk add --no-cache \
              gcc==12.2.1_git20220924-r10 \
              make==4.4.1-r1 && \
     sudo gem install --no-document \
-             inspec-bin:5.22.3 && \
+             inspec-bin:5.21.29 && \
     sudo npm install -g \
              snyk@1.1198.0 \
              bats@1.10.0 \
