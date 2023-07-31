@@ -11,9 +11,9 @@ LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.created="CREATED" \
       org.opencontainers.image.version="VERSION"
 
-ENV CONFTEST_VERSION=0.43.1
+ENV CONFTEST_VERSION=0.44.1
 ENV COSIGN_VERSION=2.0.2
-ENV SYFT_VERSION=0.84.0
+ENV SYFT_VERSION=0.86.1
 ENV ORAS_VERSION=1.0.0
 ENV DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-exo", "pipefail", "-c"]
@@ -22,30 +22,30 @@ SHELL ["/bin/bash", "-exo", "pipefail", "-c"]
 RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90circleci" && \
     sudo bash -c "echo 'DPkg::Options \"--force-confnew\";' >> /etc/apt/apt.conf.d/90circleci" && sudo apt-get update && \
     sudo apt-get install --no-install-recommends -y \
-            apt-transport-https=2.6.1 \
-            lsb-release=12.0-1 \
+            apt-transport-https=2.7.2 \
+            lsb-release=12.0-2 \
             ruby-full=1:3.1 \
             jq=1.6-2.1 \
-            gcc=4:12.3.0-1 \
-            g++=4:12.3.0-1 \
+            gcc=4:13.1.0-4 \
+            g++=4:13.1.0-4 \
             make=4.3-4.1 && \
     sudo mkdir -p /etc/apt/keyrings && \
     sudo bash -c "curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg" && \
     sudo bash -c "echo \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable\" | tee /etc/apt/sources.list.d/docker.list > /dev/null" && sudo apt-get update && \
     sudo apt-get install --no-install-recommends -y \
-                 docker-ce=5:24.0.2-1~debian.11~bullseye \
-                 docker-compose-plugin=2.18.1-1~debian.11~bullseye \
+                 docker-ce=5:24.0.5-1~debian.11~bullseye \
+                 docker-compose-plugin=2.20.2-1~debian.11~bullseye \
                  nodejs=18.13.0+dfsg1-1 \
                  npm=9.2.0~ds1-1 && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
     sudo bash -c "sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen && locale-gen" && \
     sudo npm install -g \
-             snyk@1.1184.0 \
-             bats@1.9.0 \
+             snyk@1.1198.0 \
+             bats@1.10.0 \
              github-release-notes@0.17.3 && \
     sudo gem install --no-document \
-             inspec-bin:5.21.29 && \
+             inspec-bin:5.22.3 && \
     curl -LO  https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
     sudo mv conftest /usr/local/bin && sudo rm ./* && \
