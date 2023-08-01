@@ -70,17 +70,5 @@ ignore:
     - '*':
       expires: 2023-09-01T14:26:34.404Z
       reason: Runs on ephemeral pipeline executor
-  SNYK-GOLANG-GITHUBCOMSIGSTOREREKORPKGTYPES-5660287:
-    - '*':
-      expires: 2023-09-01T14:26:34.404Z
-      reason: Runs on ephemeral pipeline executor
-  SNYK-GOLANG-GITHUBCOMELAZARLGOPROXY-5783247:
-    - '*':
-      expires: 2023-09-01T14:26:34.404Z
-      reason: Runs on ephemeral pipeline executor
-  SNYK-GOLANG-GITHUBCOMSNOWFLAKEDBGOSNOWFLAKE-5673232:
-    - '*':
-      expires: 2023-09-01T14:26:34.404Z
-      reason: Runs on ephemeral pipeline executor
 patch: {}
 
