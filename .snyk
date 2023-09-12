@@ -2,6 +2,34 @@
 version: v1.0.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
+  SNYK-DEBIANUNSTABLE-NODEJS-5837121:
+    - '*':
+      expires: 2023-09-01T14:26:34.404Z
+      reason: Runs on ephemeral pipeline executor
+  SNYK-DEBIANUNSTABLE-NODEJS-5837105:
+    - '*':
+      expires: 2023-09-01T14:26:34.404Z
+      reason: Runs on ephemeral pipeline executor
+  SNYK-DEBIANUNSTABLE-NODEJS-5837124:
+    - '*':
+      expires: 2023-09-01T14:26:34.404Z
+      reason: Runs on ephemeral pipeline executor
+  SNYK-DEBIANUNSTABLE-NODEJS-5725849:
+    - '*':
+      expires: 2023-09-01T14:26:34.404Z
+      reason: Runs on ephemeral pipeline executor
+  SNYK-DEBIANUNSTABLE-NODEJS-3330761:
+    - '*':
+      expires: 2023-09-01T14:26:34.404Z
+      reason: Runs on ephemeral pipeline executor
+  SNYK-DEBIANUNSTABLE-NODEJS-3330752:
+    - '*':
+      expires: 2023-09-01T14:26:34.404Z
+      reason: Runs on ephemeral pipeline executor
+  SNYK-DEBIANUNSTABLE-NODEJS-3330758:
+    - '*':
+      expires: 2023-09-01T14:26:34.404Z
+      reason: Runs on ephemeral pipeline executor
   SNYK-DEBIAN12-NODEJS-3330754:
     - '*':
       expires: 2023-09-01T14:26:34.404Z
