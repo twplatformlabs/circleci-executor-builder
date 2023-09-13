@@ -42,5 +42,5 @@
 
 @test "oras version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge oras version"
-  [[ "${output}" =~ "1.1" ]]
+  [[ "${output}" =~ "1.0" ]]
 }

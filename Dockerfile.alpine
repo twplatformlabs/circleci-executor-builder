@@ -14,7 +14,7 @@ LABEL org.opencontainers.image.title="circleci-executor-builder" \
 ENV CONFTEST_VERSION=0.45.0
 ENV COSIGN_VERSION=2.2.0
 ENV SYFT_VERSION=0.90.0
-ENV ORAS_VERSION=1.1.0
+ENV ORAS_VERSION=1.0.0
 
 # hadolint ignore=DL3004,DL3047
 RUN sudo apk add --no-cache \
@@ -24,7 +24,7 @@ RUN sudo apk add --no-cache \
              npm==9.6.6-r0 \
              ruby==3.2.2-r0 \
              ruby-webrick==1.8.1-r0 \
-             ruby-bundler==2.4.15-r0\
+             ruby-bundler==2.4.15-r0 \
              jq==1.6-r3 && \
     sudo apk add --no-cache --virtual build-dependencies \
              ruby-dev==3.2.2-r0 \
