@@ -7,7 +7,7 @@
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge snyk --version"
-  [[ "${output}" =~ "1.1216" ]]
+  [[ "${output}" =~ "1.1233" ]]
 }
 
 @test "bats version" {
@@ -37,7 +37,7 @@
 
 @test "syft version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge syft version"
-  [[ "${output}" =~ "0.90" ]]
+  [[ "${output}" =~ "0.93" ]]
 }
 
 @test "oras version" {
