@@ -22,7 +22,7 @@
 
 @test "conftest version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge conftest --version"
-  [[ "${output}" =~ "0.45" ]]
+  [[ "${output}" =~ "0.46" ]]
 }
 
 @test "gren version" {

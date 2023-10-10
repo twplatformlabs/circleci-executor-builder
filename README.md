@@ -27,4 +27,4 @@ The DPS builder includes the following:
 
 See release notes for detailed version information.  
 
-See thet psk [circleci-remote-docker](https://github.com/ThoughtWorks-DPS/circleci-remote-docker) iamge repository for details image signing and sbom verification used by all twdps PSK executor images.  
+See thet psk [circleci-remote-docker](https://github.com/ThoughtWorks-DPS/circleci-remote-docker) image repository for details image signing and sbom verification used by all twdps PSK executor images.  
