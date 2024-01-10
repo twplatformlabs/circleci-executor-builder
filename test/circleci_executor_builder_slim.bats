@@ -31,7 +31,7 @@
 }
 
 @test "trivy version" {
-  run bash -c "docker exec circleci-executor-builder-slim-edge strivynyk --version"
+  run bash -c "docker exec circleci-executor-builder-slim-edge trivy --version"
   [[ "${output}" =~ "0.48" ]]
 }
 

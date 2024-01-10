@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 @test "nodejs version" {
-  run bash -c "docker exec circleci-executor-builder-alpine-edge nodejs --version"
+  run bash -c "docker exec circleci-executor-builder-alpine-edge node --version"
   [[ "${output}" =~ "21.4" ]]
 }
 

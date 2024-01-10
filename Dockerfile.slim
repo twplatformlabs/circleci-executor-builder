@@ -49,7 +49,7 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
     tar xzf trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz trivy && \
     sudo mv trivy /usr/local/bin && rm trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz && \
     curl -LO https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-x86_64 && \
-    sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint && \
+    sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint && sudo chmod +x /usr/local/bin/hadolint && \
     curl -LO https://github.com/anchore/grype/releases/download/v${GRYPE_VERSION}/grype_${GRYPE_VERSION}_linux_amd64.tar.gz && \
     tar xzf grype_${GRYPE_VERSION}_linux_amd64.tar.gz grype && \
     sudo mv grype /usr/local/bin && rm grype_${GRYPE_VERSION}_linux_amd64.tar.gz
