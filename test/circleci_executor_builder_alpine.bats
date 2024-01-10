@@ -1,13 +1,13 @@
 #!/usr/bin/env bats
 
-@test "docker health" {
-  run bash -c "docker exec circleci-executor-builder-alpine-edge docker version"
-  [[ "${output}" =~ "23.0" ]]
+@test "nodejs version" {
+  run bash -c "docker exec circleci-executor-builder-alpine-edge nodejs --version"
+  [[ "${output}" =~ "21.4" ]]
 }
 
-@test "snyk version" {
-  run bash -c "docker exec circleci-executor-builder-alpine-edge snyk --version"
-  [[ "${output}" =~ "1.1233" ]]
+@test "npm version" {
+  run bash -c "docker exec circleci-executor-builder-alpine-edge npm --version"
+  [[ "${output}" =~ "10.2" ]]
 }
 
 @test "bats version" {
@@ -15,19 +15,29 @@
   [[ "${output}" =~ "1.10" ]]
 }
 
-@test "inspec version" {
-  run bash -c "docker exec circleci-executor-builder-alpine-edge inspec --version"
-  [[ "${output}" =~ "5.22" ]]
-}
-
 @test "conftest version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge conftest --version"
-  [[ "${output}" =~ "0.46" ]]
+  [[ "${output}" =~ "0.48" ]]
 }
 
-@test "gren version" {
-  run bash -c "docker exec circleci-executor-builder-alpine-edge gren --version"
-  [[ "${output}" =~ "0.17" ]]
+@test "hadolint version" {
+  run bash -c "docker exec circleci-executor-builder-alpine-edge hadolint --version"
+  [[ "${output}" =~ "2.12" ]]
+}
+
+@test "snyk version" {
+  run bash -c "docker exec circleci-executor-builder-alpine-edge snyk --version"
+  [[ "${output}" =~ "1.1268" ]]
+}
+
+@test "trivy version" {
+  run bash -c "docker exec circleci-executor-builder-alpine-edge trivy --version"
+  [[ "${output}" =~ "0.48" ]]
+}
+
+@test "grype version" {
+  run bash -c "docker exec circleci-executor-builder-alpine-edge grype --version"
+  [[ "${output}" =~ "0.74" ]]
 }
 
 @test "cosign version" {
@@ -37,10 +47,15 @@
 
 @test "syft version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge syft version"
-  [[ "${output}" =~ "0.93" ]]
+  [[ "${output}" =~ "0.100" ]]
 }
 
 @test "oras version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge oras version"
-  [[ "${output}" =~ "1.0" ]]
+  [[ "${output}" =~ "1.1" ]]
+}
+
+@test "gren version" {
+  run bash -c "docker exec circleci-executor-builder-alpine-edge gren --version"
+  [[ "${output}" =~ "0.17" ]]
 }
