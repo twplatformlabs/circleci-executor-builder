@@ -2,6 +2,10 @@
 version: v1.25.0
 # Nearly all CVE's are remediated by virtue of the runtime context, e.g., on an ephemeral circleci executor.
 ignore:
+  SNYK-GOLANG-GITHUBCOMGOGITGOGITV5-6150754:
+    - "*":
+      reason: Path Traversal
+      expires: 2024-04-01T14:26:34.404Z
   SNYK-GOLANG-GOOGLEGOLANGORGPROTOBUFENCODINGPROTOJSON-6137908:
     - "*":
       reason: Stack-based Buffer Overflow
