@@ -2,6 +2,50 @@
 version: v1.25.0
 # Nearly all CVE's are remediated by virtue of the runtime context, e.g., on an ephemeral circleci executor.
 ignore:
+  SNYK-GOLANG-GITHUBCOMJACKCPGPROTO3V2-6371508:
+    - "*":
+      reason: SQL injection
+      expires: 2024-05-01T14:26:34.404Z
+  SNYK-GOLANG-HELMSHHELMV3PKGPLUGIN-6261790:
+    - "*":
+      reason: Use of Uninitialized Resource
+      expires: 2024-05-01T14:26:34.404Z
+  SNYK-GOLANG-HELMSHHELMV3PKGREPO-6261791:
+    - "*":
+      reason: Use of Uninitialized Resource
+      expires: 2024-05-01T14:26:34.404Z
+  SNYK-GOLANG-HELMSHHELMV3PKGDOWNLOADER-6247647:
+    - "*":
+      reason: Path Traversal
+      expires: 2024-05-01T14:26:34.404Z
+  SNYK-GOLANG-HELMSHHELMV3PKGCHARTUTIL-6247646:
+    - "*":
+      reason: Path Traversal
+      expires: 2024-05-01T14:26:34.404Z
+  SNYK-GOLANG-HELMSHHELMV3PKGCHART-6247645:
+    - "*":
+      reason: Path Traversal
+      expires: 2024-05-01T14:26:34.404Z
+  SNYK-GOLANG-HELMSHHELMV3PKGLINTRULES-6247648:
+    - "*":
+      reason: Path Traversal
+      expires: 2024-05-01T14:26:34.404Z
+  SNYK-GOLANG-GITHUBCOMCONTAINERDCONTAINERD-6219724:
+    - "*":
+      reason: Container Breakout (Leaky Vessels)
+      expires: 2024-05-01T14:26:34.404Z
+  SNYK-GOLANG-GITHUBCOMGOJOSEGOJOSEV3-6419233:
+    - "*":
+      reason: Improper Handling of Highly Compressed Data (Data Amplification)
+      expires: 2024-05-01T14:26:34.404Z
+  SNYK-GOLANG-GOOGLEGOLANGORGPROTOBUFENCODINGPROTOJSON-6393703:
+    - "*":
+      reason: Infinite loop
+      expires: 2024-05-01T14:26:34.404Z
+  SNYK-GOLANG-GOOGLEGOLANGORGPROTOBUFINTERNALENCODINGJSON-6393704:
+    - "*":
+      reason: Infinite loop
+      expires: 2024-05-01T14:26:34.404Z
   SNYK-DEBIANUNSTABLE-WGET-1277613:
     - "*":
       reason: Open Redirect
