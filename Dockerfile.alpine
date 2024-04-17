@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:alpine-7.1.0
+FROM twdps/circleci-base-image:alpine-7.2.0
 
 LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.description="Alpine-based CircleCI executor image" \
@@ -11,20 +11,20 @@ LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.created="CREATED" \
       org.opencontainers.image.version="VERSION"
 
-ENV BATS_VERSION=1.10.0
-ENV CONFTEST_VERSION=0.50.0
+ENV BATS_VERSION=1.11.0
+ENV CONFTEST_VERSION=0.51.0
 ENV HADOLINT_VERSION=2.12.0
-ENV SNYK_VERSION=1.1284.0
-ENV TRIVY_VERSION=0.49.1
-ENV GRYPE_VERSION=0.74.7
-ENV COSIGN_VERSION=2.2.3
-ENV SYFT_VERSION=1.0.1
+ENV SNYK_VERSION=1.1289.0
+ENV TRIVY_VERSION=0.50.1
+ENV GRYPE_VERSION=0.76.0
+ENV COSIGN_VERSION=2.2.4
+ENV SYFT_VERSION=1.2.0
 ENV ORAS_VERSION=1.1.0
 ENV GREN_VERSION=0.17.3
 
 # hadolint ignore=DL3004,DL3047
 RUN sudo apk add --no-cache \
-             nodejs-current==21.4.0-r0 \
+             nodejs-current==21.7.2-r0 \
              npm==10.2.5-r0 && \
     sudo npm install -g \
              snyk@${SNYK_VERSION} \
