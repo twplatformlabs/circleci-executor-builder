@@ -17,7 +17,7 @@
 
 @test "conftest version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge conftest --version"
-  [[ "${output}" =~ "0.51" ]]
+  [[ "${output}" =~ "0.52" ]]
 }
 
 @test "hadolint version" {
@@ -27,7 +27,7 @@
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge snyk --version"
-  [[ "${output}" =~ "1.1289" ]]
+  [[ "${output}" =~ "1.1291" ]]
 }
 
 @test "trivy version" {
@@ -37,7 +37,7 @@
 
 @test "grype version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge grype --version"
-  [[ "${output}" =~ "0.76" ]]
+  [[ "${output}" =~ "0.77" ]]
 }
 
 @test "cosign version" {
@@ -47,7 +47,7 @@
 
 @test "syft version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge syft version"
-  [[ "${output}" =~ "1.2" ]]
+  [[ "${output}" =~ "1.3" ]]
 }
 
 @test "oras version" {

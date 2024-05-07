@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:slim-7.2.0
+FROM twdps/circleci-base-image:slim-7.3.0
 
 LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.description="Debian-based CircleCI executor image" \
@@ -26,7 +26,7 @@ ENV GREN_VERSION=0.17.3
 RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90circleci" && \
     sudo bash -c "echo 'DPkg::Options \"--force-confnew\";' >> /etc/apt/apt.conf.d/90circleci" && sudo apt-get update && \
     sudo apt-get install --no-install-recommends -y \
-            nodejs=18.20.1+dfsg-4 \
+            nodejs=18.20.1+dfsg-4+b2 \
             npm=9.2.0~ds1-2 && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
