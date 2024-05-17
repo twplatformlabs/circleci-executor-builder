@@ -2,7 +2,7 @@
 
 @test "nodejs version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge nodejs -v"
-  [[ "${output}" =~ "18.20" ]]
+  [[ "${output}" =~ "20.13" ]]
 }
 
 @test "npm version" {
