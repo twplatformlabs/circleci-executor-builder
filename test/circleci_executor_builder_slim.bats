@@ -32,7 +32,7 @@
 
 @test "trivy version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge trivy --version"
-  [[ "${output}" =~ "0.50" ]]
+  [[ "${output}" =~ "0.51" ]]
 }
 
 @test "grype version" {
@@ -47,7 +47,7 @@
 
 @test "syft version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge syft version"
-  [[ "${output}" =~ "1.3" ]]
+  [[ "${output}" =~ "1.4" ]]
 }
 
 @test "oras version" {
