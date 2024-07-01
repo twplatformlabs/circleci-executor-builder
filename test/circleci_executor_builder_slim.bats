@@ -2,7 +2,7 @@
 
 @test "nodejs version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge nodejs -v"
-  [[ "${output}" =~ "20.13" ]]
+  [[ "${output}" =~ "20.15" ]]
 }
 
 @test "npm version" {
@@ -17,7 +17,7 @@
 
 @test "conftest version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge conftest --version"
-  [[ "${output}" =~ "0.52" ]]
+  [[ "${output}" =~ "0.53" ]]
 }
 
 @test "hadolint version" {
@@ -27,17 +27,17 @@
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge snyk --version"
-  [[ "${output}" =~ "1.1291" ]]
+  [[ "${output}" =~ "1.1292" ]]
 }
 
 @test "trivy version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge trivy --version"
-  [[ "${output}" =~ "0.51" ]]
+  [[ "${output}" =~ "0.53" ]]
 }
 
 @test "grype version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge grype --version"
-  [[ "${output}" =~ "0.77" ]]
+  [[ "${output}" =~ "0.79" ]]
 }
 
 @test "cosign version" {
@@ -47,12 +47,12 @@
 
 @test "syft version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge syft version"
-  [[ "${output}" =~ "1.4" ]]
+  [[ "${output}" =~ "1.8" ]]
 }
 
 @test "oras version" {
   run bash -c "docker exec circleci-executor-builder-slim-edge oras version"
-  [[ "${output}" =~ "1.1" ]]
+  [[ "${output}" =~ "1.2" ]]
 }
 
 @test "gren version" {

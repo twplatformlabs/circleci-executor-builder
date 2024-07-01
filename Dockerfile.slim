@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:slim-7.4.0
+FROM twdps/circleci-base-image:slim-8.1.0
 
 LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.description="Debian-based CircleCI executor image" \
@@ -12,22 +12,22 @@ LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.version="VERSION"
 
 ENV BATS_VERSION=1.11.0
-ENV CONFTEST_VERSION=0.52.0
+ENV CONFTEST_VERSION=0.53.0
 ENV HADOLINT_VERSION=2.12.0
-ENV SNYK_VERSION=1.1291.0
-ENV TRIVY_VERSION=0.51.1
-ENV GRYPE_VERSION=0.77.4
+ENV SNYK_VERSION=1.1292.1
+ENV TRIVY_VERSION=0.53.0
+ENV GRYPE_VERSION=0.79.1
 ENV COSIGN_VERSION=2.2.4
-ENV SYFT_VERSION=1.4.1
-ENV ORAS_VERSION=1.1.0
+ENV SYFT_VERSION=1.8.0
+ENV ORAS_VERSION=1.2.0
 ENV GREN_VERSION=0.17.3
 
 # hadolint ignore=DL4001,DL3004,DL3047
 RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90circleci" && \
     sudo bash -c "echo 'DPkg::Options \"--force-confnew\";' >> /etc/apt/apt.conf.d/90circleci" && sudo apt-get update && \
     sudo apt-get install --no-install-recommends -y \
-            nodejs=20.13.1+dfsg-1 \
-            npm=9.2.0~ds1-2 && \
+            nodejs=20.15.0+dfsg-1 \
+            npm=9.2.0~ds1-3 && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
     sudo npm install -g \
