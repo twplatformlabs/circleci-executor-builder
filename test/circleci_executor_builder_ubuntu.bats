@@ -42,7 +42,7 @@
 
 @test "cosign version" {
   run bash -c "docker exec circleci-executor-builder-ubuntu-edge cosign version"
-  [[ "${output}" =~ "2.2" ]]
+  [[ "${output}" =~ "2.4" ]]
 }
 
 @test "syft version" {
