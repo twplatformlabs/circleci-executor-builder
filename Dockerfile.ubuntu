@@ -1,7 +1,7 @@
-FROM twdps/circleci-base-image:slim-8.1.0
+FROM twdps/circleci-base-image:ubuntu-8.2.0
 
 LABEL org.opencontainers.image.title="circleci-executor-builder" \
-      org.opencontainers.image.description="Debian-based CircleCI executor image" \
+      org.opencontainers.image.description="Ubuntu-based CircleCI executor image" \
       org.opencontainers.image.documentation="https://github.com/ThoughtWorks-DPS/circleci-executor-builder" \
       org.opencontainers.image.source="https://github.com/ThoughtWorks-DPS/circleci-executor-builder" \
       org.opencontainers.image.url="https://github.com/ThoughtWorks-DPS/circleci-executor-builder" \
@@ -14,20 +14,19 @@ LABEL org.opencontainers.image.title="circleci-executor-builder" \
 ENV BATS_VERSION=1.11.0
 ENV CONFTEST_VERSION=0.55.0
 ENV HADOLINT_VERSION=2.12.0
-ENV SNYK_VERSION=1.1292.4
-ENV TRIVY_VERSION=0.54.1
-ENV GRYPE_VERSION=0.80.0
-ENV COSIGN_VERSION=2.4.0
-ENV SYFT_VERSION=1.11.1
+ENV SNYK_VERSION=1.1294.0
+ENV TRIVY_VERSION=0.56.2
+ENV GRYPE_VERSION=0.82.2
+ENV COSIGN_VERSION=2.4.1
+ENV SYFT_VERSION=1.14.2
 ENV ORAS_VERSION=1.2.0
 ENV GREN_VERSION=0.17.3
 
-# hadolint ignore=DL4001,DL3004,DL3047
-RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90circleci" && \
-    sudo bash -c "echo 'DPkg::Options \"--force-confnew\";' >> /etc/apt/apt.conf.d/90circleci" && sudo apt-get update && \
-    sudo apt-get install --no-install-recommends -y \
-            nodejs=20.15.0+dfsg-1 \
-            npm=9.2.0~ds1-3 && \
+RUN sudo bash -c "echo 'APT::Get::Assume-Yes "true";' > /etc/apt/apt.conf.d/90forceyes" && \
+    sudo bash -c "echo 'DPkg::Options "--force-confnew";' >> /etc/apt/apt.conf.d/90forceyes" && \
+    sudo apt update && sudo apt-get install --no-install-recommends -y \
+             nodejs=20.16.0+dfsg-1ubuntu1 \
+             npm=9.2.0~ds1-3 && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
     sudo npm install -g \
@@ -54,8 +53,7 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
     tar xzf grype_${GRYPE_VERSION}_linux_amd64.tar.gz grype && \
     sudo mv grype /usr/local/bin && rm grype_${GRYPE_VERSION}_linux_amd64.tar.gz
 
-COPY inspec /etc/chef/accepted_licenses/inspec
-
 USER circleci
 
 WORKDIR /home/circleci/project
+         
