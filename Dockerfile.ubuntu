@@ -23,7 +23,7 @@ ENV ORAS_VERSION=1.2.0
 ENV GREN_VERSION=0.17.3
 
 # hadolint ignore=DL3004
-RUN sudo bash -c "echo 'APT::Get::Assume-Yes "true";' > /etc/apt/apt.conf.d/90forceyes" && \
+RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90circleci" && \
     sudo bash -c "echo 'DPkg::Options "--force-confnew";' >> /etc/apt/apt.conf.d/90forceyes" && \
     sudo apt update && sudo apt-get install --no-install-recommends -y \
              nodejs=20.16.0+dfsg-1ubuntu1 \
