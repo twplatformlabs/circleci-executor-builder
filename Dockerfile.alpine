@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:alpine-8.2.0
+FROM twdps/circleci-base-image:alpine-8.3.0
 
 LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.description="Alpine-based CircleCI executor image" \
@@ -12,13 +12,13 @@ LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.version="VERSION"
 
 ENV BATS_VERSION=1.11.0
-ENV CONFTEST_VERSION=0.55.0
+ENV CONFTEST_VERSION=0.56.0
 ENV HADOLINT_VERSION=2.12.0
 ENV SNYK_VERSION=1.1294.0
-ENV TRIVY_VERSION=0.56.2
-ENV GRYPE_VERSION=0.82.2
+ENV TRIVY_VERSION=0.57.1
+ENV GRYPE_VERSION=0.85.0
 ENV COSIGN_VERSION=2.4.1
-ENV SYFT_VERSION=1.14.2
+ENV SYFT_VERSION=1.17.0
 ENV ORAS_VERSION=1.2.0
 ENV GREN_VERSION=0.17.3
 

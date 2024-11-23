@@ -17,7 +17,7 @@
 
 @test "conftest version" {
   run bash -c "docker exec circleci-executor-builder-ubuntu-edge conftest --version"
-  [[ "${output}" =~ "0.55" ]]
+  [[ "${output}" =~ "0.56" ]]
 }
 
 @test "hadolint version" {
@@ -32,12 +32,12 @@
 
 @test "trivy version" {
   run bash -c "docker exec circleci-executor-builder-ubuntu-edge trivy --version"
-  [[ "${output}" =~ "0.56" ]]
+  [[ "${output}" =~ "0.57" ]]
 }
 
 @test "grype version" {
   run bash -c "docker exec circleci-executor-builder-ubuntu-edge grype --version"
-  [[ "${output}" =~ "0.82" ]]
+  [[ "${output}" =~ "0.85" ]]
 }
 
 @test "cosign version" {
@@ -47,7 +47,7 @@
 
 @test "syft version" {
   run bash -c "docker exec circleci-executor-builder-ubuntu-edge syft version"
-  [[ "${output}" =~ "1.14" ]]
+  [[ "${output}" =~ "1.17" ]]
 }
 
 @test "oras version" {
