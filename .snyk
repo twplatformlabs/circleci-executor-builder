@@ -2,6 +2,22 @@
 version: v1.25.0
 # Nearly all CVE's are remediated by virtue of the runtime context, e.g., on an ephemeral circleci executor.
 ignore:
+  SNYK-JS-SEMVER-3247795:
+    - "*":
+      reason: Denial of Service (DoS)
+      expires: 2025-01-30T14:26:34.404Z
+  SNYK-JS-AXIOS-6032459:
+    - "*":
+      reason: Denial of Service (DoS)
+      expires: 2025-01-30T14:26:34.404Z
+  SNYK-JS-ANSIREGEX-1583908:
+    - "*":
+      reason: Denial of Service (DoS)
+      expires: 2025-01-30T14:26:34.404Z
+  SNYK-JS-CROSSSPAWN-8303230:
+    - "*":
+      reason: Denial of Service (DoS)
+      expires: 2025-01-30T14:26:34.404Z
   SNYK-GOLANG-K8SIOAPIMACHINERYPKGUTILRUNTIME-8367153:
     - "*":
       reason: Denial of Service (DoS)
