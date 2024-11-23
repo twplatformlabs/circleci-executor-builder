@@ -14,6 +14,7 @@ Enterprises using CircleCI will find that building executors is a common task. H
 
 The PSK builder includes common tools:  
 
+
 **configuration testing**  
 - [bats](https://github.com/bats-core/bats-core)
 - [conftest](https://github.com/open-policy-agent/conftest)
