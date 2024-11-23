@@ -2,6 +2,10 @@
 version: v1.25.0
 # Nearly all CVE's are remediated by virtue of the runtime context, e.g., on an ephemeral circleci executor.
 ignore:
+  SNYK-JS-IP-6240864:
+    - "*":
+      reason: Server-side Request Forgery
+      expires: 2025-01-30T14:26:34.404Z
   SNYK-JS-SEMVER-3247795:
     - "*":
       reason: Denial of Service (DoS)
