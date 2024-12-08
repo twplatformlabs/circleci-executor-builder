@@ -17,7 +17,6 @@ The PSK builder includes common tools:
 
 **configuration testing**  
 - [bats](https://github.com/bats-core/bats-core)
-- [conftest](https://github.com/open-policy-agent/conftest)
 - [hadolint](https://github.com/hadolint/hadolint)
 
 **scanning**  
@@ -34,3 +33,5 @@ The PSK builder includes common tools:
 See release notes for detailed version information.  
 
 See the psk [circleci-remote-docker](https://github.com/ThoughtWorks-DPS/circleci-remote-docker) image repository for details image signing and sbom verification used by all twdps PSK executor images.  
+
+_Note. With release version 8.0.0 teh conftest tool and CIS Docker Benchmark scanning is removed._
