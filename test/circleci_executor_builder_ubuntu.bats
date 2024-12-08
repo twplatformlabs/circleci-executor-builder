@@ -15,11 +15,6 @@
   [[ "${output}" =~ "1.11" ]]
 }
 
-@test "conftest version" {
-  run bash -c "docker exec circleci-executor-builder-ubuntu-edge conftest --version"
-  [[ "${output}" =~ "0.56" ]]
-}
-
 @test "hadolint version" {
   run bash -c "docker exec circleci-executor-builder-ubuntu-edge hadolint --version"
   [[ "${output}" =~ "2.12" ]]
@@ -32,7 +27,7 @@
 
 @test "trivy version" {
   run bash -c "docker exec circleci-executor-builder-ubuntu-edge trivy --version"
-  [[ "${output}" =~ "0.57" ]]
+  [[ "${output}" =~ "0.58" ]]
 }
 
 @test "grype version" {

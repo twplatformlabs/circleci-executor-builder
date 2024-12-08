@@ -2,22 +2,17 @@
 
 @test "nodejs version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge node --version"
-  [[ "${output}" =~ "21.7" ]]
+  [[ "${output}" =~ "23.2" ]]
 }
 
 @test "npm version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge npm --version"
-  [[ "${output}" =~ "10.8" ]]
+  [[ "${output}" =~ "10.9" ]]
 }
 
 @test "bats version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge bats -v"
   [[ "${output}" =~ "1.11" ]]
-}
-
-@test "conftest version" {
-  run bash -c "docker exec circleci-executor-builder-alpine-edge conftest --version"
-  [[ "${output}" =~ "0.56" ]]
 }
 
 @test "hadolint version" {
@@ -32,7 +27,7 @@
 
 @test "trivy version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge trivy --version"
-  [[ "${output}" =~ "0.57" ]]
+  [[ "${output}" =~ "0.58" ]]
 }
 
 @test "grype version" {

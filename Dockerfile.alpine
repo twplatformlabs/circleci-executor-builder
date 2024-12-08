@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:alpine-8.3.0
+FROM twdps/circleci-base-image:alpine-8.4.0
 
 LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.description="Alpine-based CircleCI executor image" \
@@ -12,28 +12,24 @@ LABEL org.opencontainers.image.title="circleci-executor-builder" \
       org.opencontainers.image.version="VERSION"
 
 ENV BATS_VERSION=1.11.0
-ENV CONFTEST_VERSION=0.56.0
 ENV HADOLINT_VERSION=2.12.0
-ENV SNYK_VERSION=1.1294.0
-ENV TRIVY_VERSION=0.57.1
+ENV SNYK_VERSION=1.1294.2
+ENV TRIVY_VERSION=0.58.0
 ENV GRYPE_VERSION=0.85.0
 ENV COSIGN_VERSION=2.4.1
 ENV SYFT_VERSION=1.17.0
-ENV ORAS_VERSION=1.2.0
+ENV ORAS_VERSION=1.2.1
 ENV GREN_VERSION=0.17.3
 
 # hadolint ignore=DL3004,DL3047
 RUN sudo apk add --no-cache \
-             nodejs-current==21.7.3-r0 \
-             npm==10.8.0-r0 && \
+             nodejs-current==23.2.0-r1 \
+             npm==10.9.1-r0 && \
     sudo npm install -g \
              snyk@${SNYK_VERSION} \
              bats@${BATS_VERSION} \
              github-release-notes@${GREN_VERSION} && \
     sudo chown -R root:root /usr/local/lib/node_modules && \
-    curl -LO https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
-    tar xzf conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz && \
-    sudo mv conftest /usr/local/bin && rm ./* && \
     curl -LO https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64 && \
     chmod +x cosign-linux-amd64 && sudo mv cosign-linux-amd64 /usr/local/bin/cosign && \
     sudo bash -c "curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin v${SYFT_VERSION}" && \
