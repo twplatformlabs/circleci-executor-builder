@@ -22,17 +22,17 @@
 
 @test "snyk version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge snyk --version"
-  [[ "${output}" =~ "1.1294" ]]
+  [[ "${output}" =~ "1.1295" ]]
 }
 
 @test "trivy version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge trivy --version"
-  [[ "${output}" =~ "0.58" ]]
+  [[ "${output}" =~ "0.59" ]]
 }
 
 @test "grype version" {
   run bash -c "docker exec circleci-executor-builder-alpine-edge grype --version"
-  [[ "${output}" =~ "0.85" ]]
+  [[ "${output}" =~ "0.87" ]]
 }
 
 @test "cosign version" {
