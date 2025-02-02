@@ -42,7 +42,7 @@
 
 @test "syft version" {
   run bash -c "docker exec circleci-executor-builder-ubuntu-edge syft version"
-  [[ "${output}" =~ "1.17" ]]
+  [[ "${output}" =~ "1.19" ]]
 }
 
 @test "oras version" {
