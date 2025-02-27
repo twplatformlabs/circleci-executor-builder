@@ -1,10 +1,10 @@
-FROM twdps/circleci-base-image:alpine-8.5.0
+FROM twdps/circleci-base-image:alpine-8.6.0
 
 LABEL org.opencontainers.image.created="%%CREATED%%" \
       org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
-      org.opencontainers.image.documentation="https://github.com/ThoughtWorks-DPS/circleci-executor-builder" \
-      org.opencontainers.image.source="https://github.com/ThoughtWorks-DPS/circleci-executor-builder" \
-      org.opencontainers.image.url="https://github.com/ThoughtWorks-DPS/circleci-executor-builder" \
+      org.opencontainers.image.documentation="https://github.com/twplatformlabs/circleci-executor-builder" \
+      org.opencontainers.image.source="https://github.com/twplatformlabs/circleci-executor-builder" \
+      org.opencontainers.image.url="https://github.com/twplatformlabs/circleci-executor-builder" \
       org.opencontainers.image.version="%%VERSION%%" \
       org.opencontainers.image.vendor="ThoughtWorks, Inc." \
       org.opencontainers.image.licenses="MIT" \
@@ -15,11 +15,11 @@ LABEL org.opencontainers.image.created="%%CREATED%%" \
 
 ENV BATS_VERSION=1.11.1
 ENV HADOLINT_VERSION=2.12.0
-ENV SNYK_VERSION=1.1295.2
-ENV TRIVY_VERSION=0.59.0
+ENV SNYK_VERSION=1.1295.4
+ENV TRIVY_VERSION=0.59.1
 ENV GRYPE_VERSION=0.87.0
-ENV COSIGN_VERSION=2.4.1
-ENV SYFT_VERSION=1.19.0
+ENV COSIGN_VERSION=2.4.3
+ENV SYFT_VERSION=1.20.0
 ENV ORAS_VERSION=1.2.2
 ENV GREN_VERSION=0.17.3
 
