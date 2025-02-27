@@ -1,12 +1,12 @@
 <div align="center">
 	<p>
-		<img alt="Thoughtworks Logo" src="https://raw.githubusercontent.com/ThoughtWorks-DPS/static/master/thoughtworks_flamingo_wave.png?sanitize=true" width=200 />
+		<img alt="Thoughtworks Logo" src="https://raw.githubusercontent.com/twplatformlabs/static/master/thoughtworks_flamingo_wave.png?sanitize=true" width=200 />
     <br />
-		<img alt="DPS Title" src="https://raw.githubusercontent.com/ThoughtWorks-DPS/static/master/EMPCPlatformStarterKitsImage.png?sanitize=true" width=350/>
+		<img alt="DPS Title" src="https://raw.githubusercontent.com/twplatformlabs/static/master/EMPCPlatformStarterKitsImage.png?sanitize=true" width=350/>
 	</p>
   <h3>PSK Convenience Images</h3>
   <h1>twdps/circleci-executor-builder</h1>
-  <a href="https://app.circleci.com/pipelines/github/ThoughtWorks-DPS/circleci-executor-builder"><img src="https://circleci.com/gh/ThoughtWorks-DPS/circleci-executor-builder.svg?style=shield"></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/ThoughtWorks-DPS/circleci-executor-builder"></a>
+  <a href="https://app.circleci.com/pipelines/github/twplatformlabs/circleci-executor-builder"><img src="https://circleci.com/gh/twplatformlabs/circleci-executor-builder.svg?style=shield"></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/twplatformlabs/circleci-executor-builder"></a>
 </div>
 <br />
 
@@ -32,6 +32,6 @@ The PSK builder includes common tools:
 
 See release notes for detailed version information.  
 
-See the psk [circleci-remote-docker](https://github.com/ThoughtWorks-DPS/circleci-remote-docker) image repository for details image signing and sbom verification used by all twdps PSK executor images.  
+See the psk [circleci-remote-docker](https://github.com/twplatformlabs/circleci-remote-docker) image repository for details image signing and sbom verification used by all twdps PSK executor images.  
 
 _Note. With release version 8.0.0 the conftest tool and CIS Docker Benchmark scanning is removed._
