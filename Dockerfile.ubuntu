@@ -1,4 +1,4 @@
-FROM twdps/circleci-base-image:ubuntu-8.8.0
+FROM twdps/circleci-base-image:ubuntu-stable
 
 LABEL org.opencontainers.image.created="%%CREATED%%" \
       org.opencontainers.image.authors="nic.cheneweth@thoughtworks.com" \
@@ -12,44 +12,35 @@ LABEL org.opencontainers.image.created="%%CREATED%%" \
       org.opencontainers.image.description="Ubuntu-based CircleCI executor image for building executors" \
       org.opencontainers.image.base.name="%%BASE%%"
 
-ENV BATS_VERSION=1.11.1
-ENV HADOLINT_VERSION=2.12.0
-ENV SNYK_VERSION=1.1296.0
-ENV TRIVY_VERSION=0.61.0
-ENV GRYPE_VERSION=0.91.0
-ENV COSIGN_VERSION=2.4.3
-ENV SYFT_VERSION=1.22.0
-ENV ORAS_VERSION=1.2.2
-ENV GREN_VERSION=0.17.3
+SHELL ["/bin/bash", "-exo", "pipefail", "-c"]
 
 # hadolint ignore=DL3004
 RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90circleci" && \
     sudo bash -c "echo 'DPkg::Options \"--force-confnew\";' >> /etc/apt/apt.conf.d/90circleci" && \
     sudo apt update && sudo apt-get install --no-install-recommends -y \
-             nodejs=20.16.0+dfsg-1ubuntu1 \
-             npm=9.2.0~ds1-3 && \
+             nodejs \
+             npm && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* && \
     sudo npm install -g \
-             snyk@${SNYK_VERSION} \
-             bats@${BATS_VERSION} \
-             github-release-notes@${GREN_VERSION} && \
-    curl -LO https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64 && \
-    chmod +x cosign-linux-amd64 && sudo mv cosign-linux-amd64 /usr/local/bin/cosign && \
-    sudo bash -c "curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin v${SYFT_VERSION}" && \
-    curl -LO "https://github.com/oras-project/oras/releases/download/v${ORAS_VERSION}/oras_${ORAS_VERSION}_linux_amd64.tar.gz" && \
+             snyk \
+             bats && \
+    sudo chown -R root:root /usr/local/lib/node_modules && \
+    download_url=$(curl -s "https://api.github.com/repos/hadolint/hadolint/releases/latest" | jq -r ".assets[] | select(.name == \"hadolint-Linux-x86_64\") | .browser_download_url") && \
+    curl -LO ${download_url} && \
+    chmod +x hadolint-Linux-x86_64 && sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint && \
+    curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin && \
+    curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sudo sh -s -- -b /usr/local/bin && \
+    contains_url=$(curl -s "https://api.github.com/repos/oras-project/oras/releases/latest" | jq -r ".assets[] | select(.name | contains(\"_linux_amd64.tar.gz.asc\")) | .browser_download_url") && \
+    download_url=${contains_url::-4} && curl -L -o oras.tar.gz "${download_url}" && \
     mkdir -p oras-install && \
-    tar -zxf oras_${ORAS_VERSION}_*.tar.gz -C oras-install/ && \
+    tar -zxf oras.tar.gz -C oras-install/ && \
     sudo mv oras-install/oras /usr/local/bin/ && \
-    rm -rf oras_${ORAS_VERSION}_*.tar.gz oras-install/ && \
-    curl -LO https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz && \
-    tar xzf trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz trivy && \
-    sudo mv trivy /usr/local/bin && rm trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz && \
-    curl -LO https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-x86_64 && \
-    sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint && sudo chmod +x /usr/local/bin/hadolint && \
-    curl -LO https://github.com/anchore/grype/releases/download/v${GRYPE_VERSION}/grype_${GRYPE_VERSION}_linux_amd64.tar.gz && \
-    tar xzf grype_${GRYPE_VERSION}_linux_amd64.tar.gz grype && \
-    sudo mv grype /usr/local/bin && rm grype_${GRYPE_VERSION}_linux_amd64.tar.gz
+    rm -rf ./oras.tar.gz oras-install/ && \
+    download_url=$(curl -s "https://api.github.com/repos/sigstore/cosign/releases/latest" | jq -r ".assets[] | select(.name == \"cosign-linux-amd64\") | .browser_download_url") && \
+    curl -LO ${download_url} && \
+    chmod +x cosign-linux-amd64 && sudo mv cosign-linux-amd64 /usr/local/bin/cosign && \
+    curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sudo sh -s -- -b /usr/local/bin
 
 USER circleci
 
