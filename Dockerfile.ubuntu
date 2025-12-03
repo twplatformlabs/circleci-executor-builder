@@ -28,9 +28,9 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
              snyk \
              bats && \
     sudo chown -R root:root /usr/local/lib/node_modules && \
-    download_url=$(curl -s "https://api.github.com/repos/hadolint/hadolint/releases/latest" | jq -r ".assets[] | select(.name == \"hadolint-Linux-x86_64\") | .browser_download_url") && \
+    download_url=$(curl -s "https://api.github.com/repos/hadolint/hadolint/releases/latest" | jq -r ".assets[] | select(.name == \"hadolint-linux-x86_64\") | .browser_download_url") && \
     curl -LO "${download_url}" && \
-    chmod +x hadolint-Linux-x86_64 && sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint && \
+    chmod +x hadolint-linux-x86_64 && sudo mv hadolint-linux-x86_64 /usr/local/bin/hadolint && \
     curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin && \
     curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sudo sh -s -- -b /usr/local/bin && \
     contains_url=$(curl -s "https://api.github.com/repos/oras-project/oras/releases/latest" | jq -r ".assets[] | select(.name | contains(\"_linux_amd64.tar.gz.asc\")) | .browser_download_url") && \
