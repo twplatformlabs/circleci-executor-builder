@@ -39,7 +39,11 @@ RUN sudo apk add --no-cache \
     curl -LO "${download_url}" && \
     chmod +x cosign-linux-amd64 && sudo mv cosign-linux-amd64 /usr/local/bin/cosign && \
     curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sudo sh -s -- -b /usr/local/bin && \
-    curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh  | sudo sh -s --
+    download_version=$(curl -s "https://api.github.com/repos/docker/scout-cli/releases/latest" | jq -r .tag_name) && \
+    download_url=$("https://github.com/docker/scout-cli/releases/download/${download_version}/docker-scout_${download_version:1}_linux_amd64.tar.gz") && \
+    curl -LO "${download_url}" && \
+    tar -xzf "docker-scout_${download_version:1}_linux_amd64.tar.gz" docker_scout && rm "docker-scout_${download_version:1}_linux_amd64.tar.gz" && \
+    sudo chmod +x docker-scout && sudo mv docker-scout /usr/local/bin/
 
 USER circleci
 
