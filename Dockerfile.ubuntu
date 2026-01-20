@@ -46,7 +46,7 @@ RUN sudo bash -c "echo 'APT::Get::Assume-Yes \"true\";' > /etc/apt/apt.conf.d/90
     download_version=$(curl -s "https://api.github.com/repos/docker/scout-cli/releases/latest" | jq -r .tag_name) && \
     download_url=$("https://github.com/docker/scout-cli/releases/download/${download_version}/docker-scout_${download_version:1}_linux_amd64.tar.gz") && \
     curl -fL -O "${download_url}" && \
-    tar -xzf "docker-scout_${download_version:1}_linux_amd64.tar.gz" docker_scout && rm "docker-scout_${download_version:1}_linux_amd64.tar.gz" && \
+    tar -xzf "docker-scout_${download_version:1}_linux_amd64.tar.gz" docker-scout && rm "docker-scout_${download_version:1}_linux_amd64.tar.gz" && \
     sudo chmod +x docker-scout && sudo mv docker-scout /usr/local/bin/
 
 USER circleci
