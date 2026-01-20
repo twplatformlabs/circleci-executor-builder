@@ -43,7 +43,14 @@ RUN sudo apk add --no-cache \
     download_url="https://github.com/docker/scout-cli/releases/download/${download_version}/docker-scout_${download_version:1}_linux_amd64.tar.gz" && \
     curl -fL -O "${download_url}" && \
     tar -xzf "docker-scout_${download_version:1}_linux_amd64.tar.gz" docker-scout && rm "docker-scout_${download_version:1}_linux_amd64.tar.gz" && \
-    sudo chmod +x docker-scout && sudo mv docker-scout /usr/local/bin/
+    sudo mkdir -p "$HOME/.docker/cli-plugins" && sudo mv docker-scout "$HOME/.docker/cli-plugins/docker-scout" && \
+    <<'EOF' cat > /home/USER/.docker/config.json
+{
+  "cliPluginsExtraDirs": [
+    "/home/circleci/.docker/cli-plugins"
+  ]
+}
+EOF
 
 USER circleci
 
