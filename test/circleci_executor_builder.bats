@@ -49,3 +49,8 @@
   run bash -c "docker exec container-test oras --help"
   [[ "${output}" =~ "oras [command]" ]]
 }
+
+@test "docker scout version" {
+  run bash -c "docker exec container-test docker scout --help"
+  [[ "${output}" =~ "attestation" ]]
+}
