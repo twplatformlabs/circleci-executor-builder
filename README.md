@@ -15,7 +15,6 @@ Enterprises using CircleCI will find that building executors is a common task. H
 >**Note:** This image was previously published to Dockerhub as twdps/circleci-executor-builder. Beginning in February 2026, image is now released from ghcr.io/twplatformlabs/circleci-executor-builder.  
 
 The PSK builder includes common tools:  
-
 **configuration testing**  
 - [bats](https://github.com/bats-core/bats-core)
 - [hadolint](https://github.com/hadolint/hadolint)
