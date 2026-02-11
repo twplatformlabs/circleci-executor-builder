@@ -1,4 +1,4 @@
-FROM ghcr.io/twplatformlabs/circleci-base-image:alpine-stable
+FROM ghcr.io/twplatformlabs/circleci-base-image:alpine-latest
 
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 

@@ -1,4 +1,4 @@
-FROM ghcr.io/twplatformlabs/circleci-base-image:ubuntu-stable
+FROM ghcr.io/twplatformlabs/circleci-base-image:ubuntu-latest
 
 SHELL ["/bin/bash", "-exo", "pipefail", "-c"]
 
