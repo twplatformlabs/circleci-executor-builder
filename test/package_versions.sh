@@ -5,13 +5,21 @@ if [[ -z "${TEST_CONTAINER}" ]]; then
   exit 1
 fi
 
-bash -c "docker exec ${TEST_CONTAINER} node --version" && echo
-bash -c "docker exec ${TEST_CONTAINER} snyk version" && echo
-bash -c "docker exec ${TEST_CONTAINER} bats version" && echo
+RESULT=$(bash -c "docker exec ${TEST_CONTAINER} node --version")
+echo "nodejs ${RESULT}" && echo
+RESULT=$(bash -c "docker exec ${TEST_CONTAINER} snyk version")
+echo "snyk ${RESULT}" && echo
+RESULT=$(bash -c "docker exec ${TEST_CONTAINER} bats version")
+echo "bats ${RESULT}" && echo
 bash -c "docker exec ${TEST_CONTAINER} hadolint --version" && echo
-bash -c "docker exec ${TEST_CONTAINER} trivy --version" && echo
+RESULT=$(bash -c "docker exec ${TEST_CONTAINER} trivy --version | grep Version")
+echo "trivy ${RESULT}" && echo
 bash -c "docker exec ${TEST_CONTAINER} syft --version" && echo
-bash -c "docker exec ${TEST_CONTAINER} oras version" && echo
-bash -c "docker exec ${TEST_CONTAINER} cosign version" && echo
-bash -c "docker exec ${TEST_CONTAINER} grype version" && echo
-bash -c "docker exec ${TEST_CONTAINER} docker scout version"
+RESULT=$(bash -c "docker exec ${TEST_CONTAINER} oras version")
+echo "oras ${RESULT}" && echo
+RESULT=$(bash -c "docker exec ${TEST_CONTAINER} cosign version | grep GitVersion")
+echo "cosign ${RESULT}" && echo
+RESULT=$(bash -c "docker exec ${TEST_CONTAINER} grype version | grep 'Version: 0'")
+echo "grype ${RESULT}" && echo
+RESULT=$(bash -c "docker exec ${TEST_CONTAINER} docker scout version | grep version")
+echo "Scout ${RESULT}" && echo
