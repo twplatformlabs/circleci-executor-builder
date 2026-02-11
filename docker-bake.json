@@ -35,7 +35,7 @@
       "dockerfile": "Dockerfile.alpine",
       "tags": ["ghcr.io/twplatformlabs/circleci-executor-builder:alpine-${TAG}"],
       "context": ".",
-      "platforms": ["linux/amd64", "linux/arm64"],
+      "platforms": ["linux/amd64"],
       "inherits": ["_release"],
       "labels": {
         "org.opencontainers.image.url": "https://github.com/twplatformlabs/circleci-executor-builder",
@@ -50,7 +50,7 @@
       "dockerfile": "Dockerfile.ubuntu",
       "tags": ["ghcr.io/twplatformlabs/circleci-executor-builder:ubuntu-${TAG}"],
       "context": ".",
-      "platforms": ["linux/amd64", "linux/arm64"],
+      "platforms": ["linux/amd64"],
       "inherits": ["_release"],
       "labels": {
         "org.opencontainers.image.url": "https://github.com/twplatformlabs/circleci-executor-builder",
