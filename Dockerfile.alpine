@@ -34,7 +34,6 @@ RUN sudo apk add --no-cache \
     sudo mkdir -p "$HOME/.docker/cli-plugins" && sudo mv docker-scout "$HOME/.docker/cli-plugins/docker-scout" && \
     sudo chown -R circleci:circleci "$HOME/.docker"
 
-
 COPY --chown=circleci:circleci cli-plugins.json /home/circleci/.docker/config.json
 
 USER circleci
