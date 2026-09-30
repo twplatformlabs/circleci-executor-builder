@@ -36,7 +36,7 @@ RUN sudo apk add --no-cache \
 
 COPY --chown=circleci:circleci cli-plugins.json /home/circleci/.docker/config.json
 
-# hadolint DL3066
+# hadolint ignore=DL3066
 USER circleci
 
 WORKDIR /home/circleci/project
