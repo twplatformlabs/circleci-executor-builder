@@ -43,7 +43,6 @@ Or, use the [from-manifest.sh](https://github.com/twplatformlabs/circleci-remote
 ### Tagging Scheme
 
 This image has the following tagging scheme:
-
 ```
 ghcr.io/twplatformlabs/circleci-executor-builder:[alpine | ubuntu]-<YYYY.MM>
 ghcr.io/twplatformlabs/circleci-executor-builder::[alpine | ubuntu]-latest
